@@ -245,7 +245,7 @@ class Component extends DCLogic {
     const lh = "var(--lh-tight)";
     const lsWide = "var(--ls-wide)";
     const accentLine = "rgba(175,203,8,0.55)"; /* keep in sync with --accent-lime above (also the bullet check-icon stroke) */
-    const eonRed = "#e6381a"; /* E.ON red, used sparingly: play button only */
+    const eonRed = "#ea1c0a"; /* E.ON red, used sparingly: play button only */
     const accentA = (a) => "rgba(175,203,8," + a + ")";
     const paperA = (a) => "rgba(253,253,250," + a + ")";
 
@@ -509,13 +509,13 @@ class Component extends DCLogic {
       playIconStyle: {
         width: m ? 56 : 104, height: m ? 56 : 104,
         borderRadius: "50%",
-        /* red disc with a thin white inner ring, like Mehr Ampere's "System-Intelligenz" badge */
-        boxShadow: "inset 0 0 0 " + (m ? 3 : 4) + "px " + eonRed + ", inset 0 0 0 " + (m ? 5 : 6.5) + "px #ffffff, 0 10px 24px -8px rgba(230,56,26,0.45)",
+        /* flat red disc with a thin white inner ring, like Mehr Ampere's "System-Intelligenz" badge (no shadow, brand is flat) */
+        boxShadow: "inset 0 0 0 " + (m ? 3 : 4) + "px " + eonRed + ", inset 0 0 0 " + (m ? 5 : 6.5) + "px #ffffff",
         background: eonRed,
         border: "none", cursor: "pointer",
         display: "flex", alignItems: "center", justifyContent: "center",
       },
-      playHoverStyle: { background: "#cf2f13" },
+      playHoverStyle: { background: "#c81808" },
       playIconSvgSize: m ? 24 : 44,
       videoLabelStyle: {
         fontFamily: inter, fontWeight: 600, fontSize: "var(--fs-button)",
