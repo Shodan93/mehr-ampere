@@ -12,7 +12,7 @@
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Exo+2:ital,wght@1,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Design tokens. Swap --accent-lime (and only that one value) to restyle the whole page's accent. */
     :root {
@@ -26,6 +26,8 @@
       --font-display:'Barlow',-apple-system,Helvetica,Arial,sans-serif;
       --font-body:'Barlow',-apple-system,Helvetica,Arial,sans-serif;
       --font-mono:'Space Mono','IBM Plex Mono',monospace;
+      --font-headline:'Exo 2','Barlow',-apple-system,Helvetica,Arial,sans-serif; /* free stand-in for the E.ON/Mehr Ampere italic headline face, hero h1 only */
+      --headline-red:#ea1b0a; /* sampled from the Mehr Ampere job-ad header */
       --lh-tight:1.02; --ls-tight:-0.01em; --ls-wide:0.08em;
       /* Typography scale (desktop). --type-scale is one global knob for all sizes except the hero headline. */
       --type-scale:1.08;
@@ -321,11 +323,11 @@ class Component extends DCLogic {
         margin: 0,
       },
       h1Style: {
-        fontFamily: archivoNarrow, fontWeight: 700,
+        fontFamily: "var(--font-headline)", fontWeight: 800, fontStyle: "italic",
         fontSize: "var(--fs-hero-title)",
-        letterSpacing: ls,
-        lineHeight: lh,
-        color: strong,
+        letterSpacing: "-0.005em",
+        lineHeight: 1.08,
+        color: "var(--headline-red)",
         margin: 0,
         maxWidth: m ? "100%" : 1100, textWrap: "balance",
       },
