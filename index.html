@@ -172,17 +172,18 @@
         <div style="{{ case2EyebrowLineStyle }}"></div>
       </div>
       <h2 style="{{ case2TitleStyle }}">Cuply</h2>
-      <p style="{{ case2SubtitleStyle }}">Marketing-Case: Strategie, Marke &amp; Konzept</p>
+      <p style="{{ case2SubtitleStyle }}">Marketing-Konzept: Landingpage, Content &amp; Conversion</p>
     </div>
     <div style="{{ case2ContentRowStyle }}">
       <img src="assets/cuply-book-akurat.jpg" alt="Cuply – Titelbild der fiktiven Marketing-Case-Study" style="{{ cuplyImgStyle }}" />
       <div style="{{ case2RightColStyle }}">
         <div style="{{ bulletsStyle2 }}">
-          <div style="{{ bulletRowStyle2 }}"><div style="{{ case2BulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle2 }}"><strong style="{{ bulletLeadStyle }}">Strategie:</strong> 105-seitiger Marketing-Case (fiktiv), eigenständig und mit KI&#8209;gestütztem Workflow erarbeitet</span></div>
-          <div style="{{ bulletRowStyle2 }}"><div style="{{ case2BulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle2 }}"><strong style="{{ bulletLeadStyle }}">Marke:</strong> Markenstrategie für ein nachhaltiges Produkt entwickelt, am Beispiel eines Kaffeebechers</span></div>
-          <div style="{{ bulletRowStyle2 }}"><div style="{{ case2BulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle2 }}"><strong style="{{ bulletLeadStyle }}">Konzept:</strong> Landingpage mit Conversion-Logik, Lead Magnets und automatisierte Kontaktstrecken</span></div>
-          <div style="{{ bulletRowStyle2 }}"><div style="{{ case2BulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle2 }}"><strong style="{{ bulletLeadStyle }}">Messung:</strong> KPI-System, UTM-Taxonomie, A/B-Tests und Creative Testing</span></div>
+          <div style="{{ bulletRowStyle2 }}"><div style="{{ case2BulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle2 }}">Landingpage konzipiert und als Desktop-Entwurf gestaltet, mit abgestimmter Botschaft und klarer Conversion-Logik.</span></div>
+          <div style="{{ bulletRowStyle2 }}"><div style="{{ case2BulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle2 }}">Content-Strategie mit Themenfeldern, Formaten und Tonalität passend zu Zielgruppen und Marke entwickelt.</span></div>
+          <div style="{{ bulletRowStyle2 }}"><div style="{{ case2BulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle2 }}">Zielgruppen, Personas und Pain Points analysiert und daraus Positionierung und Kundenansprache abgeleitet.</span></div>
+          <div style="{{ bulletRowStyle2 }}"><div style="{{ case2BulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle2 }}">Erfolgsmessung mit KPI-Systematik und UTM-Konzept geplant, um Marketingmaßnahmen strukturiert auszuwerten.</span></div>
         </div>
+        <p style="{{ caseNoteStyle }}">Konzeptarbeit für ein fiktives Beispielprodukt.</p>
         <a href="https://drive.google.com/file/d/1D6PM6L-wvPN5Ki1uZ-346SJD_HgwOttX/view?usp=sharing" target="_blank" rel="noopener" style-hover="{{ primaryBtnHoverStyle }}" style="{{ primaryBtnStyle }}">GESAMTE CASE STUDY ANSEHEN</a>
       </div>
     </div>
@@ -477,7 +478,6 @@ class Component extends DCLogic {
         alignItems: "flex-start",
         width: "100%",
       },
-      bulletLeadStyle: { fontWeight: 600, color: strong },
       bulletRowStyle1: { display: "flex", flexDirection: "row", gap: 12, alignItems: "flex-start", width: "100%" },
       bulletDotWrap: { width: 18, paddingTop: "calc(var(--fs-bullet) * 0.9 - 9.75px)", flexShrink: 0, display: "flex" }, /* centers the 18px check on the visual middle of the first text line (Barlow) */
       bulletTextStyle1: {
@@ -632,6 +632,10 @@ class Component extends DCLogic {
       bulletTextStyle2: {
         fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-bullet)",
         lineHeight: 1.6, color: bodyText, flexGrow: 1, margin: 0,
+      },
+      caseNoteStyle: {
+        fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", lineHeight: 1.5,
+        color: muted, margin: m ? "-4px 0 0 0" : "-8px 0 0 0",
       },
       primaryBtnStyle: {
         display: "flex", alignItems: "center", justifyContent: "center",
