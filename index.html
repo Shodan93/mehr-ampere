@@ -189,23 +189,17 @@
     </div>
   </div>
 
-  <div style="{{ footerStyle }}">
+  <footer style="{{ footerStyle }}">
     <div style="{{ footerDividerStyle }}"></div>
-    <div style="{{ footerMainRowStyle }}">
-      <div style="{{ footerMetaStyle }}">
-        <div style="{{ footerPairStyle }}">
-          <span style="{{ footerLabelStyle }}">Konzept, Inhalt &amp; Design</span>
-          <span style="{{ footerValueStyle }}">Svenja Mumelter · Figma</span>
-        </div>
-        <div style="{{ footerPairStyle }}">
-          <span style="{{ footerLabelStyle }}">Entwicklung</span>
-          <span style="{{ footerValueStyle }}">Claude Code · KI-gestützter Entwicklungsworkflow</span>
-        </div>
+    <div style="{{ footerRowStyle }}">
+      <span style="{{ footerTextStyle }}">© 2026 Svenja Mumelter · München</span>
+      <div style="{{ footerLinksStyle }}">
+        <span style="{{ footerTextStyle }}">Konzept, Inhalt &amp; Design: Svenja Mumelter · Figma</span>
+        <span style="{{ footerTextStyle }}">Entwicklung: Claude Code · KI-gestützter Workflow</span>
       </div>
     </div>
     <p style="{{ footerNoteStyle }}">Diese Landingpage habe ich für meine Bewerbung als Senior Online Marketing Manager – Website &amp; SEO bei Mehr Ampere konzipiert und umgesetzt.</p>
-    <span style="{{ copyrightStyle }}">© 2026 Svenja Mumelter · München</span>
-  </div>
+  </footer>
 
 </div>
 
@@ -644,29 +638,30 @@ class Component extends DCLogic {
       },
       primaryBtnHoverStyle: { backgroundColor: accent, color: "var(--text-on-accent)" },
 
+      /* Footer like mehr-ampere.de: thin rule, one row (copyright left, credits right), plain Barlow in their secondary grey; a bit larger than theirs for readability */
       footerStyle: {
         backgroundColor: paper,
-        display: "flex", flexDirection: "column", gap: m ? 28 : 36,
-        padding: m ? "48px 24px 40px 24px" : "64px 72px 56px 72px",
+        display: "flex", flexDirection: "column", gap: m ? 18 : 22,
+        padding: m ? "40px 24px 40px 24px" : "56px 72px 56px 72px",
       },
-      footerDividerStyle: { height: 1, backgroundColor: border, width: "100%" },
-      footerMainRowStyle: {
-        display: "flex", flexDirection: m ? "column" : "row",
-        gap: m ? 20 : 48, alignItems: "flex-start", width: "100%",
+      footerDividerStyle: { height: 1, backgroundColor: border, width: "100%", marginBottom: m ? 6 : 10 },
+      footerRowStyle: {
+        display: "flex", flexDirection: m ? "column" : "row", flexWrap: "wrap",
+        justifyContent: "space-between", alignItems: m ? "flex-start" : "baseline",
+        gap: m ? 10 : 24, width: "100%",
       },
-      footerMetaStyle: {
-        display: "flex", flexDirection: m ? "column" : "row", gap: m ? 22 : 88,
-        justifyContent: "flex-start", width: "100%", flexShrink: 0,
+      footerLinksStyle: {
+        display: "flex", flexDirection: m ? "column" : "row", flexWrap: "wrap",
+        gap: m ? 10 : 32,
+      },
+      footerTextStyle: {
+        fontFamily: archivo, fontWeight: 400, fontSize: m ? 14 : 15, lineHeight: 1.5,
+        color: muted, margin: 0,
       },
       footerNoteStyle: {
-        fontFamily: archivo, fontWeight: 400,
-        fontSize: m ? 13 : "clamp(12px, calc((100vw - 150px) / 68), var(--fs-caption))", lineHeight: 1.5,
-        color: muted, margin: 0, whiteSpace: "normal",
+        fontFamily: archivo, fontWeight: 400, fontSize: m ? 14 : 15, lineHeight: 1.5,
+        color: muted, margin: 0,
       },
-      footerPairStyle: { display: "flex", flexDirection: "column", gap: m ? 6 : 8 },
-      footerLabelStyle: { fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-label)", letterSpacing: lsWide, textTransform: "uppercase", lineHeight: 1.2, color: muted, margin: 0 },
-      footerValueStyle: { fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", letterSpacing: ls, color: bodyText, margin: 0 },
-      copyrightStyle: { fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-caption)", color: muted, marginTop: m ? -14 : -20 },
     };
   }
 }
