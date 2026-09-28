@@ -158,6 +158,7 @@
         <div style="{{ c1TileTextWrapStyle }}">
           <span style="{{ c1TileTitleStyle }}">Walkthrough-Link</span>
           <span style="{{ c1TileTextStyle }}">Video-Stream über Google Drive</span>
+          <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" style="{{ c1UrlStyle }}">drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view</a>
         </div>
         <div style="{{ c1BtnRowStyle }}">
           <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="btn-outline" style="{{ outlineBtnStyle }}">Link öffnen</a>
@@ -511,7 +512,13 @@ class Component extends DCLogic {
         backgroundColor: accent, borderRadius: tileRadius,
         padding: m ? "20px 20px 22px 20px" : "18px 28px", boxSizing: "border-box",
       },
-      c1TileTextWrapStyle: { display: "flex", flexDirection: "column", gap: 2, minWidth: 0 },
+      c1TileTextWrapStyle: { display: "flex", flexDirection: "column", gap: 2, minWidth: 0, flex: m ? "0 0 auto" : "1 1 300px" }, /* basis only on desktop rows; in the mobile column it would become a height */
+      /* the full link, readable to type off or select; wraps anywhere so it never overflows */
+      c1UrlStyle: {
+        fontFamily: archivo, fontWeight: 600, fontSize: m ? 15 : 16, lineHeight: 1.4,
+        color: "var(--ink-900)", textDecoration: "underline", textDecorationColor: "var(--ink-900)", textUnderlineOffset: 3,
+        overflowWrap: "anywhere", marginTop: 6,
+      },
       c1TileTitleStyle: {
         fontFamily: archivo, fontWeight: 700, fontSize: m ? 20 : 22, lineHeight: 1.2,
         color: "var(--ink-900)", margin: 0,
