@@ -50,21 +50,15 @@
     .toc a { color: inherit; text-decoration: none; padding: 4px 0; }
     .toc a:hover { color: inherit; text-decoration: underline; text-decoration-color: var(--accent-lime); }
     [id] { scroll-margin-top: 24px; }
-    /* Video tile: no tile hover. Only the play button swaps colours (red disc/white ring+triangle -> white disc/red ring+triangle), instantly, no transition, no gradient. Inline styles need !important. */
     .video-tile { cursor: pointer; }
-    .video-tile:hover .vt-cta, .video-tile:focus-visible .vt-cta { background-color: var(--ink-900) !important; color: #ffffff !important; }
     /* Pill button hover/focus: instant switch to lime with dark text (5:1), like mehr-ampere.de; no transition */
     /* Lime contact pills (like "Jetzt Experten-Check starten"): hover = instant switch to dark grey with white text/icon */
     .btn-lime:hover, .btn-lime:focus-visible { background-color: var(--ink-900) !important; color: #ffffff !important; }
     .btn-lime:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
     .btn-pill:hover, .btn-pill:focus-visible { background-color: var(--accent-lime) !important; color: var(--ink-900) !important; }
     .btn-pill:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
-    /* Outline pill on the green tiles (like "Anrufen"/"Mail schreiben" on mehr-ampere.de): hover = instant fill, no transition */
-    .btn-outline:hover, .btn-outline:focus-visible { background-color: var(--ink-900) !important; color: #ffffff !important; }
-    .btn-outline:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
-    .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { background-color: #ffffff !important; box-shadow: inset 0 0 0 6px #ffffff, inset 0 0 0 8px #e6381a !important; }
-    .video-tile:hover .vt-play path, .video-tile:focus-visible .vt-play path { fill: #e6381a; }
-    @media (max-width: 859px) { .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { box-shadow: inset 0 0 0 4px #ffffff, inset 0 0 0 5.5px #e6381a !important; } }
+    /* preview hover: the play disc turns lime, instantly */
+    .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { background-color: var(--accent-lime) !important; }
     .video-tile:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
   </style>
 </helmet>
@@ -152,36 +146,26 @@
         <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle1 }}">Customer Journey im Shop optimiert und Maßnahmen zur Conversion-Optimierung eigenständig umgesetzt.</span></div>
         <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle1 }}">Markenauftritt und Content mitentwickelt: Fotografie, Video und Social Media.</span></div>
       </div>
-      <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="video-tile" style="{{ c1CardStyle }}" data-name="video-card" aria-label="Shop-Walkthrough abspielen (Stream über Google Drive)">
-        <div style="{{ c1MediaStyle }}">
-          <div class="vt-play" style="{{ playIconStyle }}" aria-hidden="true">
-            <svg width="{{ playIconSvgSize }}" height="{{ playIconSvgSize }}" viewBox="0 0 24 24" fill="#ffffff"><path d="M9 6.8v10.4l8.2-5.2z"></path></svg>
+      <figure style="{{ c1ShowcaseStyle }}">
+        <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="video-tile" style="{{ c1PreviewStyle }}" data-name="video-card" aria-label="Shop-Walkthrough ansehen (öffnet extern in Google Drive)">
+          <div style="{{ c1BrowserBarStyle }}" aria-hidden="true"><span style="{{ c1DotStyle }}"></span><span style="{{ c1DotStyle }}"></span><span style="{{ c1DotStyle }}"></span></div>
+          <div style="{{ c1ScreenStyle }}">
+            <div class="vt-play" style="{{ playIconStyle }}" aria-hidden="true">
+              <svg width="{{ playIconSvgSize }}" height="{{ playIconSvgSize }}" viewBox="0 0 24 24" fill="#42484c"><path d="M9 6.8v10.4l8.2-5.2z"></path></svg>
+            </div>
           </div>
-        </div>
-        <div style="{{ c1CardBodyStyle }}">
-          <span style="{{ c1CardTitleStyle }}">Shop-Walkthrough</span>
-          <span style="{{ c1CardTextStyle }}">Zum Abspielen klicken – Stream über Google Drive.</span>
-          <span class="vt-cta" style="{{ c1CardCtaStyle }}">Video ansehen</span>
-        </div>
-      </a>
-      <div style="{{ c1QrTileStyle }}">
-        <img src="assets/qr-code.png" alt="QR-Code zu RoyalShrimp.de" style="{{ qrImgStyle }}" />
-        <div style="{{ c1TileTextWrapStyle }}">
-          <span style="{{ c1TileTitleStyle }}">RoyalShrimp.de</span>
-          <span style="{{ c1TileTextStyle }}">Zum Öffnen scannen</span>
-        </div>
-      </div>
-      <div style="{{ c1LinkTileStyle }}">
-        <div style="{{ c1TileTextWrapStyle }}">
-          <span style="{{ c1TileTitleStyle }}">Walkthrough-Link</span>
-          <span style="{{ c1TileTextStyle }}">Video-Stream über Google Drive</span>
-          <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" style="{{ c1UrlStyle }}">drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view</a>
-        </div>
-        <div style="{{ c1BtnRowStyle }}">
-          <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="btn-outline" style="{{ outlineBtnStyle }}">Link öffnen</a>
-          <button type="button" class="btn-outline" style="{{ outlineBtnStyle }}" onClick="{{ copyLink1 }}">{{ copyLabel1 }}</button>
-        </div>
-      </div>
+        </a>
+        <figcaption style="{{ c1CaptionStyle }}">
+          <div style="{{ c1CaptionTextStyle }}">
+            <span style="{{ c1CaptionLabelStyle }}">Shop-Walkthrough</span>
+            <span style="{{ c1CaptionCopyStyle }}">Kurzer Einblick in Aufbau, Struktur und Nutzerführung des Shops.</span>
+          </div>
+          <div style="{{ c1CtaWrapStyle }}">
+            <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="btn-pill" style="{{ primaryBtnStyle }}">Walkthrough ansehen</a>
+            <span style="{{ c1CtaNoteStyle }}">Öffnet extern in Google Drive.</span>
+          </div>
+        </figcaption>
+      </figure>
     </div>
   </div>
 
@@ -229,7 +213,6 @@
 class Component extends DCLogic {
   state = {
     isMobile: typeof window !== "undefined" ? window.innerWidth <= 859 : false,
-    copied1: false,
   };
 
   componentDidMount() {
@@ -242,14 +225,6 @@ class Component extends DCLogic {
   componentWillUnmount() {
     window.removeEventListener("resize", this._onResize);
   }
-
-  copyLink1 = () => {
-    const text = "https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing";
-    if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {});
-    this.setState({ copied1: true });
-    clearTimeout(this._t1);
-    this._t1 = setTimeout(() => this.setState({ copied1: false }), 1500);
-  };
 
   renderVals() {
     const m = this.state.isMobile;
@@ -266,12 +241,9 @@ class Component extends DCLogic {
     const inter = "var(--font-body)";
     const ls = "var(--ls-tight)";
     const lh = "var(--lh-tight)";
-    const badgeRed = "#e6381a"; /* red of Mehr Ampere's "System-Intelligenz" badge: play button only */
-    const tileRadius = 16;
+    const previewImg = null; /* e.g. "assets/royalshrimp-preview.jpg" once a real shop still/screenshot exists */
 
     return {
-      copyLabel1: this.state.copied1 ? "Kopiert ✓" : "Link kopieren",
-      copyLink1: this.copyLink1,
 
       pageStyle: {
         fontFamily: archivo,
@@ -487,13 +459,13 @@ class Component extends DCLogic {
         margin: 0,
       },
 
-      /* Case 1: big video card is the focus (2/3 width); QR tile under the bullets, flat link bar under the video. Style like the contact area on mehr-ampere.de */
+      /* Case 1: bullets left, one curated showcase right (preview + caption + single CTA). No extra boxes. */
       c1GridStyle: m ? {
-        display: "flex", flexDirection: "column", gap: 20, width: "100%",
+        display: "flex", flexDirection: "column", gap: 32, width: "100%",
       } : {
         display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 2fr)",
-        gridTemplateAreas: '"bullets video" "qr link"',
-        columnGap: 24, rowGap: 20, alignItems: "stretch", width: "100%",
+        gridTemplateAreas: '"bullets video"',
+        columnGap: 56, alignItems: "center", width: "100%",
       },
       bulletsStyle: {
         gridArea: "bullets", order: 1,
@@ -510,84 +482,51 @@ class Component extends DCLogic {
         fontSize: "var(--fs-bullet)",
         lineHeight: 1.6, color: bodyText, flexGrow: 1, margin: 0,
       },
-      c1CardStyle: {
-        gridArea: "video", order: 2,
-        display: "flex", flexDirection: "column",
-        backgroundColor: "#ffffff", borderRadius: tileRadius, overflow: "hidden",
-        textDecoration: "none", minWidth: 0,
+      c1ShowcaseStyle: { gridArea: "video", order: 2, margin: 0, display: "flex", flexDirection: "column", minWidth: 0 },
+      /* quiet browser-frame preview; shows a real still once previewImg is set */
+      c1PreviewStyle: {
+        display: "block", borderRadius: 14, overflow: "hidden",
+        backgroundColor: "#ffffff", textDecoration: "none",
       },
-      c1MediaStyle: {
-        height: m ? 210 : 400, flexShrink: 0, flexGrow: 1,
-        backgroundColor: "#ececec",
+      c1BrowserBarStyle: {
+        display: "flex", alignItems: "center", gap: 7,
+        height: m ? 26 : 32, padding: m ? "0 12px" : "0 16px",
+        backgroundColor: "#f1f1f1",
+      },
+      c1DotStyle: { width: m ? 8 : 10, height: m ? 8 : 10, borderRadius: "50%", backgroundColor: "#d7d9da", display: "block" },
+      c1ScreenStyle: {
+        position: "relative", aspectRatio: "16 / 9",
+        backgroundColor: "#e7e9e5",
+        backgroundImage: previewImg ? "url(" + previewImg + ")" : "none",
+        backgroundSize: "cover", backgroundPosition: "top center",
         display: "flex", alignItems: "center", justifyContent: "center",
       },
-      /* the focus element: lime body like the "Auf Jobsuche?" card on mehr-ampere.de (dark text for 5:1) */
-      c1CardBodyStyle: {
-        display: "flex", flexDirection: "column", gap: 8,
-        backgroundColor: accent,
-        padding: m ? "20px 20px 24px 20px" : "26px 32px 30px 32px",
-      },
-      c1CardTitleStyle: {
-        fontFamily: archivo, fontWeight: 700, fontSize: m ? 24 : 30, lineHeight: 1.1,
-        letterSpacing: "0.01em", textTransform: "uppercase",
-        color: "var(--ink-900)", margin: 0,
-      },
-      c1CardTextStyle: {
-        fontFamily: archivo, fontWeight: 500, fontSize: "var(--fs-body)", lineHeight: 1.5,
-        color: "var(--ink-900)", margin: 0,
-      },
-      c1CardCtaStyle: {
-        display: "inline-flex", alignItems: "center", justifyContent: "center", alignSelf: "flex-start",
-        height: 42, padding: "0 26px", marginTop: 8, borderRadius: 999,
-        border: "2px solid var(--ink-900)", color: "var(--ink-900)", backgroundColor: "transparent",
-        fontFamily: archivo, fontWeight: 600, fontSize: 16, boxSizing: "border-box", whiteSpace: "nowrap",
-      },
-      /* secondary tiles (QR, link): plain white, quiet type, so the video card stays the focus */
-      c1QrTileStyle: {
-        gridArea: "qr", order: 4,
-        display: "flex", flexDirection: "row", alignItems: "center", gap: 14,
-        backgroundColor: "#ffffff", borderRadius: tileRadius,
-        padding: m ? "14px 18px" : "14px 18px", boxSizing: "border-box",
-      },
-      c1LinkTileStyle: {
-        gridArea: "link", order: 3,
-        display: "flex", flexDirection: m ? "column" : "row", flexWrap: "wrap",
-        alignItems: m ? "flex-start" : "center", justifyContent: "space-between", gap: m ? 12 : 18,
-        backgroundColor: "#ffffff", borderRadius: tileRadius,
-        padding: m ? "16px 18px 18px 18px" : "16px 24px", boxSizing: "border-box",
-      },
-      c1TileTextWrapStyle: { display: "flex", flexDirection: "column", gap: 2, minWidth: 0, flex: m ? "0 0 auto" : "1 1 300px" }, /* basis only on desktop rows; in the mobile column it would become a height */
-      /* the full link, readable to type off or select; wraps anywhere so it never overflows */
-      c1UrlStyle: {
-        fontFamily: archivo, fontWeight: 500, fontSize: 15, lineHeight: 1.4,
-        color: bodyText, textDecoration: "underline", textDecorationColor: "var(--ink-200)", textUnderlineOffset: 3,
-        overflowWrap: "anywhere", marginTop: 4,
-      },
-      c1TileTitleStyle: {
-        fontFamily: archivo, fontWeight: 600, fontSize: m ? 17 : 18, lineHeight: 1.25,
-        color: strong, margin: 0,
-      },
-      c1TileTextStyle: {
-        fontFamily: archivo, fontWeight: 400, fontSize: m ? 15 : 15, lineHeight: 1.45,
-        color: muted, margin: 0,
-      },
-      qrImgStyle: { width: 64, height: 64, borderRadius: 6, objectFit: "contain", flexShrink: 0, backgroundColor: "#ffffff" },
-      c1BtnRowStyle: { display: "flex", flexWrap: "wrap", gap: 10 },
-      outlineBtnStyle: {
-        display: "inline-flex", alignItems: "center", justifyContent: "center",
-        height: 36, padding: "0 18px", borderRadius: 999,
-        border: "1.5px solid var(--ink-600)", backgroundColor: "transparent", color: "var(--ink-900)",
-        fontFamily: archivo, fontWeight: 600, fontSize: 15, lineHeight: 1,
-        textDecoration: "none", cursor: "pointer", whiteSpace: "nowrap", boxSizing: "border-box",
-      },
-      /* Red disc with a thin white inner ring + white triangle, like the "System-Intelligenz" badge. Colour lives in `color` so the hover rule can swap it. */
+      /* restrained play button: white disc, dark triangle; turns lime on hover */
       playIconStyle: {
-        width: m ? 76 : 124, height: m ? 76 : 124, borderRadius: "50%", flexShrink: 0,
-        color: badgeRed, backgroundColor: "currentColor",
-        boxShadow: "inset 0 0 0 " + (m ? 4 : 6) + "px currentColor, inset 0 0 0 " + (m ? 5.5 : 8) + "px #ffffff",
+        width: m ? 64 : 84, height: m ? 64 : 84, borderRadius: "50%", flexShrink: 0,
+        backgroundColor: "rgba(255,255,255,0.94)",
         display: "flex", alignItems: "center", justifyContent: "center",
       },
-      playIconSvgSize: m ? 34 : 56,
+      playIconSvgSize: m ? 28 : 36,
+      c1CaptionStyle: {
+        display: "flex", flexDirection: m ? "column" : "row", flexWrap: "wrap",
+        alignItems: m ? "flex-start" : "center", justifyContent: "space-between",
+        gap: m ? 16 : 24, marginTop: m ? 18 : 22,
+      },
+      c1CaptionTextStyle: { display: "flex", flexDirection: "column", gap: 4, minWidth: 0, flex: m ? "0 0 auto" : "1 1 320px" },
+      c1CaptionLabelStyle: {
+        fontFamily: archivo, fontWeight: 700, fontSize: m ? 14 : 15, letterSpacing: "0.1em", textTransform: "uppercase",
+        lineHeight: 1.4, color: strong,
+      },
+      c1CaptionCopyStyle: {
+        fontFamily: archivo, fontWeight: 400, fontSize: m ? 16 : 16.5, lineHeight: 1.5,
+        color: bodyText,
+      },
+      c1CtaWrapStyle: { display: "flex", flexDirection: "column", alignItems: m ? "flex-start" : "flex-end", gap: 6, flexShrink: 0 },
+      c1CtaNoteStyle: {
+        fontFamily: archivo, fontWeight: 400, fontSize: 13.5, lineHeight: 1.4,
+        color: muted,
+      },
 
       case2HeaderStyle: {
         position: "relative", zIndex: 1,
