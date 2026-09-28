@@ -54,6 +54,13 @@
     .toc a { color: inherit; text-decoration: none; }
     .toc a:hover { color: inherit; text-decoration: underline; text-decoration-color: var(--accent-lime); }
     [id] { scroll-margin-top: 24px; }
+    /* Video tile hover/focus: flips to solid red with white icon + text, like Mehr Ampere's process tiles (inline styles need !important) */
+    .video-tile, .video-tile .vt-invert, .video-tile svg { transition: background-color .18s ease, color .18s ease, stroke .18s ease; }
+    .video-tile:hover, .video-tile:focus-visible { background-color: #e21b0a !important; }
+    .video-tile:hover .vt-invert, .video-tile:focus-visible .vt-invert { color: #ffffff !important; }
+    .video-tile:hover svg, .video-tile:focus-visible svg { stroke: #ffffff; }
+    .video-tile:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { .video-tile, .video-tile .vt-invert, .video-tile svg { transition: none; } }
   </style>
 </helmet>
 <div style="{{ pageStyle }}">
@@ -134,13 +141,13 @@
         </div>
       </div>
       <div style="{{ rightColStyle }}">
-        <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" style-hover="{{ videoCardHoverStyle }}" style="{{ videoCardStyle }}" data-name="video-card" aria-label="Shop-Walkthrough abspielen (Stream über Google Drive)">
+        <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="video-tile" style="{{ videoCardStyle }}" data-name="video-card" aria-label="Shop-Walkthrough abspielen (Stream über Google Drive)">
           <div style="{{ playIconStyle }}" aria-hidden="true">
             <svg width="{{ playIconSvgSize }}" height="{{ playIconSvgSize }}" viewBox="0 0 48 48" fill="none" stroke="#e21b0a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="21"></circle><path d="M19.5 15.5v17L33 24z"></path></svg>
           </div>
           <div style="{{ videoTextWrapStyle }}">
-            <span style="{{ videoLabelStyle }}">Shop-Walkthrough</span>
-            <span style="{{ videoSubLabelStyle }}">Zum Abspielen klicken – Stream über Google Drive.</span>
+            <span class="vt-invert" style="{{ videoLabelStyle }}">Shop-Walkthrough</span>
+            <span class="vt-invert" style="{{ videoSubLabelStyle }}">Zum Abspielen klicken – Stream über Google Drive.</span>
           </div>
         </a>
         <div style="{{ buttonRowStyle }}">
@@ -508,9 +515,7 @@ class Component extends DCLogic {
         display: "flex", flexDirection: "column", gap: m ? 12 : 20,
         justifyContent: "center", alignItems: "center", textAlign: "center",
         textDecoration: "none",
-        transition: "background-color .15s ease",
       },
-      videoCardHoverStyle: { backgroundColor: "#ebebeb" },
       playIconStyle: {
         display: "flex", alignItems: "center", justifyContent: "center",
         flexShrink: 0, marginBottom: m ? 0 : 4,
