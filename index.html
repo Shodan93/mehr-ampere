@@ -467,7 +467,7 @@ class Component extends DCLogic {
         width: "100%",
       },
       bulletRowStyle1: { display: "flex", flexDirection: "row", gap: 12, alignItems: "flex-start", width: "100%" },
-      bulletDotWrap: { width: 18, paddingTop: 4, flexShrink: 0, display: "flex" },
+      bulletDotWrap: { width: 18, paddingTop: "calc(var(--fs-bullet) * 0.9 - 9.75px)", flexShrink: 0, display: "flex" }, /* centers the 18px check on the visual middle of the first text line (Barlow) */
       bulletTextStyle1: {
         fontFamily: archivo, fontWeight: 400,
         fontSize: "var(--fs-bullet)",
@@ -582,7 +582,7 @@ class Component extends DCLogic {
         color: muted,
         margin: 0,
       },
-      case2BulletDotWrap: { width: 18, paddingTop: 4, flexShrink: 0, display: "flex" },
+      case2BulletDotWrap: { width: 18, paddingTop: "calc(var(--fs-bullet) * 0.9 - 9.75px)", flexShrink: 0, display: "flex" }, /* centers the 18px check on the visual middle of the first text line (Barlow) */
 
       case2Style: {
         position: "relative",
