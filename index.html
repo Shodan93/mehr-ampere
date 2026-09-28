@@ -136,7 +136,7 @@
       <div style="{{ rightColStyle }}">
         <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" style-hover="{{ videoCardHoverStyle }}" style="{{ videoCardStyle }}" data-name="video-card" aria-label="Shop-Walkthrough abspielen (Stream über Google Drive)">
           <div style="{{ playIconStyle }}" aria-hidden="true">
-            <svg width="{{ playIconSvgSize }}" height="{{ playIconSvgSize }}" viewBox="0 0 48 48" fill="none" stroke="#e21b0a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="17"></circle><path d="M20.5 17.2v13.6L31 24z"></path></svg>
+            <svg width="{{ playIconSvgSize }}" height="{{ playIconSvgSize }}" viewBox="0 0 48 48" fill="none" stroke="#e21b0a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="21"></circle><path d="M19.5 15.5v17L33 24z"></path></svg>
           </div>
           <div style="{{ videoTextWrapStyle }}">
             <span style="{{ videoLabelStyle }}">Shop-Walkthrough</span>
@@ -247,7 +247,8 @@ class Component extends DCLogic {
     const lh = "var(--lh-tight)";
     const lsWide = "var(--ls-wide)";
     const accentLine = "rgba(175,203,8,0.55)"; /* keep in sync with --accent-lime above (also the bullet check-icon stroke) */
-    const eonRed = "#e21b0a"; /* E.ON red (#ea1c0a) a hair darker so white caption text passes 4.5:1; used only for the video tile, keep in sync with the play-icon SVG stroke */
+    const eonRed = "#e21b0a"; /* E.ON red, used sparingly: video tile icon + title only; keep in sync with the play-icon SVG stroke */
+    const tileGrey = "#f4f4f4"; /* flat light grey, like Mehr Ampere's info tiles */
     const accentA = (a) => "rgba(175,203,8," + a + ")";
     const paperA = (a) => "rgba(253,253,250," + a + ")";
 
@@ -494,38 +495,35 @@ class Component extends DCLogic {
         display: "flex", flexDirection: "column", gap: 16,
         alignItems: "flex-start", width: "100%",
       } : { display: "contents" },
-      /* Flat red tile in the style of Mehr Ampere's benefit tiles: white rounded icon square top-left, bold white title bottom-left */
+      /* Flat light-grey tile in the style of Mehr Ampere's "Onlinebewerbung" tile: red line icon, red bold title, grey text, all centered */
       videoCardStyle: {
         gridColumn: 2, gridRow: 1, boxSizing: "border-box",
         position: "relative",
         width: "100%",
-        height: m ? 220 : 477,
+        height: m ? 240 : 477,
         borderRadius: 12,
         overflow: "hidden",
-        backgroundColor: eonRed,
-        padding: m ? "22px 22px 24px 22px" : "44px 44px 48px 44px",
-        display: "flex", flexDirection: "column",
-        justifyContent: "space-between", alignItems: "flex-start",
+        backgroundColor: tileGrey,
+        padding: m ? "24px 20px" : "44px",
+        display: "flex", flexDirection: "column", gap: m ? 12 : 20,
+        justifyContent: "center", alignItems: "center", textAlign: "center",
         textDecoration: "none",
         transition: "background-color .15s ease",
       },
-      videoCardHoverStyle: { backgroundColor: "#c81808" },
+      videoCardHoverStyle: { backgroundColor: "#ebebeb" },
       playIconStyle: {
-        width: m ? 64 : 112, height: m ? 64 : 112,
-        borderRadius: m ? 8 : 12,
-        background: "#ffffff",
         display: "flex", alignItems: "center", justifyContent: "center",
-        flexShrink: 0,
+        flexShrink: 0, marginBottom: m ? 0 : 4,
       },
-      playIconSvgSize: m ? 46 : 80,
-      videoTextWrapStyle: { display: "flex", flexDirection: "column", gap: m ? 4 : 8 },
+      playIconSvgSize: m ? 64 : 112,
+      videoTextWrapStyle: { display: "flex", flexDirection: "column", alignItems: "center", gap: m ? 4 : 8 },
       videoLabelStyle: {
-        fontFamily: archivoNarrow, fontWeight: 700, fontSize: m ? 24 : 36,
-        letterSpacing: ls, lineHeight: 1.1, color: "#ffffff", margin: 0,
+        fontFamily: archivoNarrow, fontWeight: 700, fontSize: m ? 26 : 36,
+        letterSpacing: ls, lineHeight: 1.1, color: eonRed, margin: 0,
       },
       videoSubLabelStyle: {
-        fontFamily: inter, fontWeight: 500, fontSize: "var(--fs-caption)",
-        color: "#ffffff", margin: 0,
+        fontFamily: inter, fontWeight: 400, fontSize: "var(--fs-body)", lineHeight: 1.5,
+        color: bodyText, margin: 0,
       },
       buttonRowStyle: { gridColumn: 2, gridRow: 2, display: "flex", width: "100%" },
       externalLinkCardStyle: {
@@ -541,7 +539,7 @@ class Component extends DCLogic {
       urlRowStyle: { display: "flex", flexDirection: "row", gap: 10, alignItems: "center", width: "100%" },
       urlTextStyle: {
         fontFamily: mono, fontWeight: 400, fontSize: "var(--fs-link)",
-        color: muted, flexGrow: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis",
+        color: muted, flexGrow: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
       },
       copyIconStyle: {
         fontFamily: inter, fontSize: "var(--fs-link)", color: accentText, background: "none",
