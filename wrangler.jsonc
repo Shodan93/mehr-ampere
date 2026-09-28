@@ -5,6 +5,8 @@
     "directory": "./"
   },
   "routes": [
+    { "pattern": "mehr-ampere-bewerbung.mumelter.org", "custom_domain": true },
+    // old English subdomain, kept alive so already-shared links keep working
     { "pattern": "mehr-ampere-application.mumelter.org", "custom_domain": true }
   ]
 }

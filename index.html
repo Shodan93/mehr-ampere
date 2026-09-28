@@ -30,14 +30,14 @@
       --lh-tight:1.02; --ls-tight:-0.01em; --ls-wide:0.08em;
       /* Typography scale (desktop). --type-scale is one global knob for all sizes except the hero headline. */
       --type-scale:1.08;
-      --fs-hero-title:56px; --fs-hero-lead:calc(18px * var(--type-scale)); --fs-hero-text:calc(17px * var(--type-scale));
+      --fs-hero-title:44px; --fs-hero-lead:calc(18px * var(--type-scale)); --fs-hero-text:calc(17px * var(--type-scale));
       --fs-label:calc(13px * var(--type-scale)); --fs-case-title:calc(34px * var(--type-scale)); --fs-case-sub:calc(18px * var(--type-scale));
       --fs-body:calc(16px * var(--type-scale)); --fs-bullet:calc(16px * var(--type-scale)); --fs-caption:calc(14px * var(--type-scale)); --fs-button:calc(14px * var(--type-scale)); --fs-link:calc(14px * var(--type-scale));
     }
     /* Typography scale (mobile, same breakpoint as the page logic) */
     @media (max-width: 859px) {
       :root {
-        --fs-hero-title:min(34px, calc((100vw - 48px) / 9.4)); --fs-hero-lead:calc(17px * var(--type-scale)); --fs-hero-text:calc(16px * var(--type-scale));
+        --fs-hero-title:min(30px, calc((100vw - 48px) / 10.5)); --fs-hero-lead:calc(17px * var(--type-scale)); --fs-hero-text:calc(16px * var(--type-scale));
         --fs-label:calc(12px * var(--type-scale)); --fs-case-title:calc(30px * var(--type-scale)); --fs-case-sub:calc(17px * var(--type-scale));
         --fs-body:calc(16px * var(--type-scale)); --fs-bullet:calc(16px * var(--type-scale)); --fs-caption:calc(14px * var(--type-scale)); --fs-button:calc(14px * var(--type-scale)); --fs-link:calc(14px * var(--type-scale));
       }
@@ -76,9 +76,10 @@
         <div style="position:absolute;left:37.5px;top:52px;width:5px;height:5px;border-radius:50%;background:var(--text-secondary)"></div>
       </sc-if>
       <div style="{{ heroContentStyle }}">
-        <img src="assets/mehr-ampere-logo.svg?v=2" alt="Mehr Ampere" width="342" height="65" style="{{ heroLogoStyle }}" />
+        <img src="assets/mehr-ampere-logo.svg?v=3" alt="Mehr Ampere" width="342" height="65" style="{{ heroLogoStyle }}" />
         <nav aria-label="Inhalt" class="toc" style="{{ eyebrowStyle }}"><a href="#intro">ÜBER MICH</a> · <a href="#royalshrimp">CASE ROYALSHRIMP</a> · <a href="#cuply">CASE CUPLY</a> · <a href="#kontakt">KONTAKT</a></nav>
         <h1 style="{{ h1Style }}">Bewerbung als Senior Online Marketing Manager – Website&nbsp;&amp;&nbsp;SEO</h1>
+        <div style="{{ heroAccentStyle }}" aria-hidden="true"></div>
         <p style="{{ subtitle1Style }}">Svenja Mumelter · Website, SEO &amp; Content</p>
       </div>
     </div>
@@ -325,6 +326,8 @@ class Component extends DCLogic {
         margin: 0,
         maxWidth: m ? "100%" : 1100, textWrap: "balance",
       },
+      /* The one red accent up top: a short E.ON-red rule under the title, same as the red dashes on the Cuply cover */
+      heroAccentStyle: { width: m ? 44 : 56, height: 4, backgroundColor: "#ea1b0a", margin: m ? "2px 0 2px 0" : "4px 0 2px 0" },
       subtitle1Style: {
         fontFamily: archivo, fontWeight: 600,
         fontSize: "var(--fs-hero-lead)",
