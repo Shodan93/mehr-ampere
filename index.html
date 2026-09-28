@@ -582,11 +582,8 @@ class Component extends DCLogic {
         padding: m ? "48px 24px" : "48px 72px",
         alignItems: "flex-start", overflow: "hidden",
       },
-      /* Very light vertical fade like Mehr Ampere's page banners: page white for the top ~40 %, then easing to light grey at the bottom */
-      case2BgStyle: {
-        position: "absolute", inset: 0, zIndex: 0,
-        backgroundImage: "linear-gradient(180deg, " + paper + " 0%, " + paper + " 40%, #f5f5f5 100%)",
-      },
+      /* Case 2 sits on the plain cream page colour (case2Style backgroundColor: paper), no gradient, like the flat sections on mehr-ampere.de */
+      case2BgStyle: { display: "none" },
       case2WashStyle: { display: "none" },
 
       case2ContentRowStyle: {
