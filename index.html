@@ -54,6 +54,7 @@
     [id] { scroll-margin-top: 24px; }
     /* Video tile: no tile hover. Only the play button swaps colours (red disc/white ring+triangle -> white disc/red ring+triangle), instantly, no transition, no gradient. Inline styles need !important. */
     .video-tile { cursor: pointer; }
+    .video-tile:hover .vt-cta, .video-tile:focus-visible .vt-cta { background-color: var(--ink-900) !important; color: #ffffff !important; }
     /* Pill button hover/focus: instant switch to lime with dark text (5:1), like mehr-ampere.de; no transition */
     /* Lime contact pills (like "Jetzt Experten-Check starten"): hover = instant switch to dark grey with white text/icon */
     .btn-lime:hover, .btn-lime:focus-visible { background-color: var(--ink-900) !important; color: #ffffff !important; }
@@ -154,6 +155,7 @@
         <div style="{{ c1CardBodyStyle }}">
           <span style="{{ c1CardTitleStyle }}">Shop-Walkthrough</span>
           <span style="{{ c1CardTextStyle }}">Zum Abspielen klicken – Stream über Google Drive.</span>
+          <span class="vt-cta" style="{{ c1CardCtaStyle }}">Video ansehen</span>
         </div>
       </a>
       <div style="{{ c1QrTileStyle }}">
@@ -513,54 +515,63 @@ class Component extends DCLogic {
         backgroundColor: "#ececec",
         display: "flex", alignItems: "center", justifyContent: "center",
       },
+      /* the focus element: lime body like the "Auf Jobsuche?" card on mehr-ampere.de (dark text for 5:1) */
       c1CardBodyStyle: {
-        display: "flex", flexDirection: "column", gap: 6,
-        padding: m ? "18px 20px 22px 20px" : "22px 28px 26px 28px",
+        display: "flex", flexDirection: "column", gap: 8,
+        backgroundColor: accent,
+        padding: m ? "20px 20px 24px 20px" : "26px 32px 30px 32px",
       },
       c1CardTitleStyle: {
-        fontFamily: archivo, fontWeight: 700, fontSize: m ? 22 : 26, lineHeight: 1.2,
-        color: strong, margin: 0,
+        fontFamily: archivo, fontWeight: 700, fontSize: m ? 24 : 30, lineHeight: 1.1,
+        letterSpacing: "0.01em", textTransform: "uppercase",
+        color: "var(--ink-900)", margin: 0,
       },
       c1CardTextStyle: {
-        fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-body)", lineHeight: 1.5,
-        color: bodyText, margin: 0,
+        fontFamily: archivo, fontWeight: 500, fontSize: "var(--fs-body)", lineHeight: 1.5,
+        color: "var(--ink-900)", margin: 0,
       },
-      /* Solid lime tiles like "Telefon"/"E-Mail" on mehr-ampere.de; dark grey text (5:1) instead of their white (1.9:1) */
+      c1CardCtaStyle: {
+        display: "inline-flex", alignItems: "center", justifyContent: "center", alignSelf: "flex-start",
+        height: 42, padding: "0 26px", marginTop: 8, borderRadius: 999,
+        border: "2px solid var(--ink-900)", color: "var(--ink-900)", backgroundColor: "transparent",
+        fontFamily: archivo, fontWeight: 600, fontSize: 16, boxSizing: "border-box", whiteSpace: "nowrap",
+      },
+      /* secondary tiles (QR, link): plain white, quiet type, so the video card stays the focus */
       c1QrTileStyle: {
         gridArea: "qr", order: 4,
-        display: "flex", flexDirection: "row", alignItems: "center", gap: 16,
-        backgroundColor: accent, borderRadius: tileRadius,
-        padding: m ? "18px 20px" : "18px 22px", boxSizing: "border-box",
+        display: "flex", flexDirection: "row", alignItems: "center", gap: 14,
+        backgroundColor: "#ffffff", borderRadius: tileRadius,
+        padding: m ? "14px 18px" : "14px 18px", boxSizing: "border-box",
       },
       c1LinkTileStyle: {
         gridArea: "link", order: 3,
         display: "flex", flexDirection: m ? "column" : "row", flexWrap: "wrap",
-        alignItems: m ? "flex-start" : "center", justifyContent: "space-between", gap: m ? 14 : 20,
-        backgroundColor: accent, borderRadius: tileRadius,
-        padding: m ? "20px 20px 22px 20px" : "18px 28px", boxSizing: "border-box",
+        alignItems: m ? "flex-start" : "center", justifyContent: "space-between", gap: m ? 12 : 18,
+        backgroundColor: "#ffffff", borderRadius: tileRadius,
+        padding: m ? "16px 18px 18px 18px" : "16px 24px", boxSizing: "border-box",
       },
       c1TileTextWrapStyle: { display: "flex", flexDirection: "column", gap: 2, minWidth: 0, flex: m ? "0 0 auto" : "1 1 300px" }, /* basis only on desktop rows; in the mobile column it would become a height */
       /* the full link, readable to type off or select; wraps anywhere so it never overflows */
       c1UrlStyle: {
-        fontFamily: archivo, fontWeight: 600, fontSize: m ? 15 : 16, lineHeight: 1.4,
-        color: "var(--ink-900)", textDecoration: "underline", textDecorationColor: "var(--ink-900)", textUnderlineOffset: 3,
-        overflowWrap: "anywhere", marginTop: 6,
+        fontFamily: archivo, fontWeight: 500, fontSize: 15, lineHeight: 1.4,
+        color: bodyText, textDecoration: "underline", textDecorationColor: "var(--ink-200)", textUnderlineOffset: 3,
+        overflowWrap: "anywhere", marginTop: 4,
       },
       c1TileTitleStyle: {
-        fontFamily: archivo, fontWeight: 700, fontSize: m ? 20 : 22, lineHeight: 1.2,
-        color: "var(--ink-900)", margin: 0,
+        fontFamily: archivo, fontWeight: 600, fontSize: m ? 17 : 18, lineHeight: 1.25,
+        color: strong, margin: 0,
       },
       c1TileTextStyle: {
-        fontFamily: archivo, fontWeight: 500, fontSize: "var(--fs-body)", lineHeight: 1.45,
-        color: "var(--ink-900)", margin: 0,
+        fontFamily: archivo, fontWeight: 400, fontSize: m ? 15 : 15, lineHeight: 1.45,
+        color: muted, margin: 0,
       },
-      qrImgStyle: { width: m ? 76 : 80, height: m ? 76 : 80, borderRadius: 8, objectFit: "contain", flexShrink: 0, backgroundColor: "#ffffff", padding: 4, boxSizing: "border-box" },
+      qrImgStyle: { width: 64, height: 64, borderRadius: 6, objectFit: "contain", flexShrink: 0, backgroundColor: "#ffffff" },
       c1BtnRowStyle: { display: "flex", flexWrap: "wrap", gap: 10 },
       outlineBtnStyle: {
         display: "inline-flex", alignItems: "center", justifyContent: "center",
-        height: 40, padding: "0 22px", borderRadius: 999,
-        border: "2px solid var(--ink-900)", backgroundColor: "transparent", color: "var(--ink-900)",
-        fontFamily: archivo, fontWeight: 600, fontSize: 16, lineHeight: 1,
+        height: 36, padding: "0 18px", borderRadius: 999,
+        border: "1.5px solid var(--ink-600)", backgroundColor: "transparent", color: "var(--ink-900)",
+        fontFamily: archivo, fontWeight: 600, fontSize: 15, lineHeight: 1,
         textDecoration: "none", cursor: "pointer", whiteSpace: "nowrap", boxSizing: "border-box",
       },
       /* Red disc with a thin white inner ring + white triangle, like the "System-Intelligenz" badge. Colour lives in `color` so the hover rule can swap it. */
