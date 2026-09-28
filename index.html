@@ -60,6 +60,9 @@
     /* Pill button hover/focus: instant switch to lime with dark text (5:1), like mehr-ampere.de; no transition */
     .btn-pill:hover, .btn-pill:focus-visible { background-color: var(--accent-lime) !important; color: var(--ink-900) !important; }
     .btn-pill:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
+    /* Outline pill on the green tiles (like "Anrufen"/"Mail schreiben" on mehr-ampere.de): hover = instant fill, no transition */
+    .btn-outline:hover, .btn-outline:focus-visible { background-color: var(--ink-900) !important; color: #ffffff !important; }
+    .btn-outline:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
     .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { background-color: #ffffff !important; box-shadow: inset 0 0 0 6px #ffffff, inset 0 0 0 8px #e6381a !important; }
     .video-tile:hover .vt-play path, .video-tile:focus-visible .vt-play path { fill: #e6381a; }
     @media (max-width: 859px) { .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { box-shadow: inset 0 0 0 4px #ffffff, inset 0 0 0 5.5px #e6381a !important; } }
@@ -131,36 +134,38 @@
       <h2 style="{{ caseTitleStyle }}">RoyalShrimp.de</h2>
       <p style="{{ caseSubtitleStyle }}">Eigener Shop mit WordPress &amp; WooCommerce</p>
     </div>
-    <div style="{{ contentRowStyle }}">
-      <div style="{{ leftColStyle }}">
-        <div style="{{ bulletsStyle }}">
-          <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle1 }}">Als Mitgründerin den Onlineshop auf Basis von WordPress mit WooCommerce eigenständig aufgebaut.</span></div>
-          <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle1 }}">SEO-Maßnahmen für den eigenen Shop selbst umgesetzt und die organische Sichtbarkeit gezielt adressiert.</span></div>
-          <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle1 }}">Customer Journey im Shop optimiert und Maßnahmen zur Conversion-Optimierung eigenständig umgesetzt.</span></div>
-          <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle1 }}">Markenauftritt und Content mitentwickelt: Fotografie, Video und Social Media.</span></div>
-        </div>
-        <div style="{{ qrCardStyle }}">
-          <img src="assets/qr-code.png" alt="QR-Code zu RoyalShrimp.de" style="{{ qrImgStyle }}" />
-          <span style="{{ scanLabelStyle }}">Zum Öffnen scannen</span>
-        </div>
+    <div style="{{ c1GridStyle }}">
+      <div style="{{ bulletsStyle }}">
+        <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle1 }}">Als Mitgründerin den Onlineshop auf Basis von WordPress mit WooCommerce eigenständig aufgebaut.</span></div>
+        <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle1 }}">SEO-Maßnahmen für den eigenen Shop selbst umgesetzt und die organische Sichtbarkeit gezielt adressiert.</span></div>
+        <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle1 }}">Customer Journey im Shop optimiert und Maßnahmen zur Conversion-Optimierung eigenständig umgesetzt.</span></div>
+        <div style="{{ bulletRowStyle1 }}"><div style="{{ bulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle1 }}">Markenauftritt und Content mitentwickelt: Fotografie, Video und Social Media.</span></div>
       </div>
-      <div style="{{ rightColStyle }}">
-        <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="video-tile" style="{{ videoCardStyle }}" data-name="video-card" aria-label="Shop-Walkthrough abspielen (Stream über Google Drive)">
+      <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="video-tile" style="{{ c1CardStyle }}" data-name="video-card" aria-label="Shop-Walkthrough abspielen (Stream über Google Drive)">
+        <div style="{{ c1MediaStyle }}">
           <div class="vt-play" style="{{ playIconStyle }}" aria-hidden="true">
             <svg width="{{ playIconSvgSize }}" height="{{ playIconSvgSize }}" viewBox="0 0 24 24" fill="#ffffff"><path d="M9 6.8v10.4l8.2-5.2z"></path></svg>
           </div>
-          <div style="{{ videoTextWrapStyle }}">
-            <span style="{{ videoLabelStyle }}">Shop-Walkthrough</span>
-            <span style="{{ videoSubLabelStyle }}">Zum Abspielen klicken – Stream über Google Drive.</span>
+        </div>
+        <div style="{{ c1CardBodyStyle }}">
+          <span style="{{ c1CardTitleStyle }}">Shop-Walkthrough</span>
+          <span style="{{ c1CardTextStyle }}">Zum Abspielen klicken – Stream über Google Drive.</span>
+        </div>
+      </a>
+      <div style="{{ c1TileColStyle }}">
+        <div style="{{ c1GreenTileStyle }}">
+          <span style="{{ c1TileTitleStyle }}">RoyalShrimp.de</span>
+          <div style="{{ c1QrRowStyle }}">
+            <img src="assets/qr-code.png" alt="QR-Code zu RoyalShrimp.de" style="{{ qrImgStyle }}" />
+            <span style="{{ c1TileTextStyle }}">Zum Öffnen scannen</span>
           </div>
-        </a>
-        <div style="{{ buttonRowStyle }}">
-          <div style="{{ externalLinkCardStyle }}">
-            <span style="{{ linkLabelStyle }}">Link öffnen &amp; kopieren</span>
-            <div style="{{ urlRowStyle }}">
-              <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" style="{{ urlTextStyle }}">drive.google.com/file/d/1ZM4CWZ1CJGp…/view?usp=sharing</a>
-              <button style-hover="{{ copyHoverStyle }}" style="{{ copyIconStyle }}" onClick="{{ copyLink1 }}" aria-label="Link kopieren">{{ copyIcon1 }}</button>
-            </div>
+        </div>
+        <div style="{{ c1GreenTileStyle }}">
+          <span style="{{ c1TileTitleStyle }}">Walkthrough-Link</span>
+          <span style="{{ c1TileTextStyle }}">Video-Stream über Google Drive</span>
+          <div style="{{ c1BtnRowStyle }}">
+            <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="btn-outline" style="{{ outlineBtnStyle }}">Link öffnen</a>
+            <button type="button" class="btn-outline" style="{{ outlineBtnStyle }}" onClick="{{ copyLink1 }}">{{ copyLabel1 }}</button>
           </div>
         </div>
       </div>
@@ -254,14 +259,13 @@ class Component extends DCLogic {
     const lsWide = "var(--ls-wide)";
     const accentLine = "rgba(175,203,8,0.55)"; /* keep in sync with --accent-lime above (also the bullet check-icon stroke) */
     const badgeRed = "#e6381a"; /* red of Mehr Ampere's "System-Intelligenz" badge: play button only */
-    const tileGrey = "#f7f7f7"; /* flat light grey, no border, no shadow, like Mehr Ampere's FAQ/info boxes (#f9f9f9 on white; one step darker because our page is #fdfdfa) */
     const tileRadius = 16;
     const accentA = (a) => "rgba(175,203,8," + a + ")";
     const paperA = (a) => "rgba(253,253,250," + a + ")";
 
     return {
       notMobile: !m,
-      copyIcon1: this.state.copied1 ? "✓" : "⧉",
+      copyLabel1: this.state.copied1 ? "Kopiert ✓" : "Link kopieren",
       copyLink1: this.copyLink1,
 
       pageStyle: {
@@ -427,11 +431,13 @@ class Component extends DCLogic {
       case1Style: {
         position: "relative",
         zIndex: 1,
-        backgroundColor: paper,
+        /* muted panel like the contact area on mehr-ampere.de: #f9f9f9 fading to #f1f1f1 */
+        backgroundColor: "#f5f5f5",
+        backgroundImage: "linear-gradient(180deg, #f9f9f9 0%, #f1f1f1 100%)",
         display: "flex",
         flexDirection: "column",
-        gap: m ? 24 : 28,
-        padding: m ? "56px 24px 48px 24px" : "96px 72px 72px 72px",
+        gap: m ? 24 : 32,
+        padding: m ? "56px 24px 48px 24px" : "88px 72px 80px 72px",
         alignItems: "flex-start",
       },
       headerStyle: {
@@ -460,23 +466,18 @@ class Component extends DCLogic {
         margin: 0,
       },
 
-      contentRowStyle: m ? {
-        display: "flex", flexDirection: "column", gap: 28,
-        alignItems: "flex-start", width: "100%",
+      /* Case 1 grid like the contact area on mehr-ampere.de: bullets | white card with media on top | two stacked green tiles */
+      c1GridStyle: m ? {
+        display: "flex", flexDirection: "column", gap: 20, width: "100%",
       } : {
-        display: "grid", gridTemplateColumns: "424px 1fr",
-        columnGap: 24, rowGap: 24, alignItems: "stretch", width: "100%",
+        display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20, alignItems: "stretch", width: "100%",
       },
-      leftColStyle: m ? {
-        display: "flex", flexDirection: "column",
-        gap: 24, alignItems: "flex-start", width: "100%",
-      } : { display: "contents" },
       bulletsStyle: {
-        gridColumn: 1, gridRow: 1,
         display: "flex", flexDirection: "column",
         gap: m ? 16 : 18,
         alignItems: "flex-start",
-        width: "100%",
+        width: "100%", paddingRight: m ? 0 : 12, boxSizing: "border-box",
+        marginBottom: m ? 12 : 0,
       },
       bulletRowStyle1: { display: "flex", flexDirection: "row", gap: 12, alignItems: "flex-start", width: "100%" },
       bulletDotWrap: { width: 18, paddingTop: "calc(var(--fs-bullet) * 0.9 - 9.75px)", flexShrink: 0, display: "flex" }, /* centers the 18px check on the visual middle of the first text line (Barlow) */
@@ -485,77 +486,63 @@ class Component extends DCLogic {
         fontSize: "var(--fs-bullet)",
         lineHeight: 1.6, color: bodyText, flexGrow: 1, margin: 0,
       },
-      qrCardStyle: {
-        gridColumn: 1, gridRow: 2, boxSizing: "border-box",
-        display: "flex", flexDirection: "row", gap: 16, alignItems: "center",
-        borderRadius: tileRadius,
-        backgroundColor: tileGrey,
-        padding: m ? "16px 18px" : "16px 20px",
-        width: "100%",
+      c1CardStyle: {
+        display: "flex", flexDirection: "column",
+        backgroundColor: "#ffffff", borderRadius: tileRadius, overflow: "hidden",
+        textDecoration: "none", minWidth: 0,
       },
-      qrImgStyle: { width: m ? 84 : 120, height: m ? 84 : 120, borderRadius: 8, objectFit: "contain", flexShrink: 0, backgroundColor: "#ffffff", padding: m ? 4 : 6, boxSizing: "border-box" },
-      scanLabelStyle: {
-        fontFamily: archivo, fontWeight: 600, fontSize: "var(--fs-body)",
-        color: strong, whiteSpace: "nowrap", margin: 0,
+      c1MediaStyle: {
+        height: m ? 200 : 250, flexShrink: 0,
+        backgroundColor: "#ececec",
+        display: "flex", alignItems: "center", justifyContent: "center",
       },
-
-      rightColStyle: m ? {
-        display: "flex", flexDirection: "column", gap: 16,
-        alignItems: "flex-start", width: "100%",
-      } : { display: "contents" },
-      /* Flat light-grey tile in the style of Mehr Ampere's "Onlinebewerbung" tile: red line icon, red bold title, grey text, all centered */
-      videoCardStyle: {
-        gridColumn: 2, gridRow: 1, boxSizing: "border-box",
-        position: "relative",
-        width: "100%",
-        height: m ? 240 : 477,
-        borderRadius: tileRadius,
-        overflow: "hidden",
-        backgroundColor: tileGrey,
-        padding: m ? "24px 20px" : "44px",
-        display: "flex", flexDirection: "column", gap: m ? 12 : 20,
-        justifyContent: "center", alignItems: "center", textAlign: "center",
-        textDecoration: "none",
+      c1CardBodyStyle: {
+        display: "flex", flexDirection: "column", gap: 8,
+        padding: m ? "20px 20px 24px 20px" : "24px 24px 28px 24px",
       },
-      /* Red disc with a thin white inner ring + white triangle, like the "System-Intelligenz" badge. Colour lives in `color` so the hover rule can darken fill and ring together. */
+      c1CardTitleStyle: {
+        fontFamily: archivo, fontWeight: 700, fontSize: m ? 22 : 24, lineHeight: 1.2,
+        color: strong, margin: 0,
+      },
+      c1CardTextStyle: {
+        fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-body)", lineHeight: 1.5,
+        color: bodyText, margin: 0,
+      },
+      c1TileColStyle: { display: "flex", flexDirection: "column", gap: 20, minWidth: 0 },
+      /* Solid lime tile like "Telefon"/"E-Mail" on mehr-ampere.de; text is dark grey (5:1) instead of their white (1.9:1) so it stays readable */
+      c1GreenTileStyle: {
+        flex: "1 1 0",
+        display: "flex", flexDirection: "column", gap: 12,
+        backgroundColor: accent, borderRadius: tileRadius,
+        padding: m ? "20px 20px 22px 20px" : "24px 24px 28px 24px",
+        boxSizing: "border-box",
+      },
+      c1TileTitleStyle: {
+        fontFamily: archivo, fontWeight: 700, fontSize: m ? 22 : 24, lineHeight: 1.2,
+        color: "var(--ink-900)", margin: 0,
+      },
+      c1TileTextStyle: {
+        fontFamily: archivo, fontWeight: 500, fontSize: "var(--fs-body)", lineHeight: 1.5,
+        color: "var(--ink-900)", margin: 0,
+      },
+      c1QrRowStyle: { display: "flex", flexDirection: "row", alignItems: "center", gap: 16 },
+      qrImgStyle: { width: m ? 84 : 96, height: m ? 84 : 96, borderRadius: 8, objectFit: "contain", flexShrink: 0, backgroundColor: "#ffffff", padding: 5, boxSizing: "border-box" },
+      c1BtnRowStyle: { display: "flex", flexWrap: "wrap", gap: 10, marginTop: 4 },
+      outlineBtnStyle: {
+        display: "inline-flex", alignItems: "center", justifyContent: "center",
+        height: 40, padding: "0 22px", borderRadius: 999,
+        border: "2px solid var(--ink-900)", backgroundColor: "transparent", color: "var(--ink-900)",
+        fontFamily: archivo, fontWeight: 600, fontSize: 16, lineHeight: 1,
+        textDecoration: "none", cursor: "pointer", whiteSpace: "nowrap", boxSizing: "border-box",
+      },
+      /* Red disc with a thin white inner ring + white triangle, like the "System-Intelligenz" badge. Colour lives in `color` so the hover rule can swap it. */
       playIconStyle: {
-        width: m ? 76 : 124, height: m ? 76 : 124, borderRadius: "50%", flexShrink: 0,
+        width: m ? 76 : 104, height: m ? 76 : 104, borderRadius: "50%", flexShrink: 0,
         color: badgeRed, backgroundColor: "currentColor",
         boxShadow: "inset 0 0 0 " + (m ? 4 : 6) + "px currentColor, inset 0 0 0 " + (m ? 5.5 : 8) + "px #ffffff",
         display: "flex", alignItems: "center", justifyContent: "center",
-        marginBottom: m ? 0 : 4,
       },
-      playIconSvgSize: m ? 34 : 56,
-      videoTextWrapStyle: { display: "flex", flexDirection: "column", alignItems: "center", gap: m ? 4 : 8 },
-      videoLabelStyle: {
-        fontFamily: archivoNarrow, fontWeight: 700, fontSize: m ? 26 : 36,
-        letterSpacing: ls, lineHeight: 1.1, color: strong, margin: 0,
-      },
-      videoSubLabelStyle: {
-        fontFamily: inter, fontWeight: 400, fontSize: "var(--fs-body)", lineHeight: 1.5,
-        color: bodyText, margin: 0,
-      },
-      buttonRowStyle: { gridColumn: 2, gridRow: 2, display: "flex", width: "100%" },
-      externalLinkCardStyle: {
-        borderRadius: tileRadius,
-        backgroundColor: tileGrey,
-        padding: m ? "16px 18px" : "16px 20px", boxSizing: "border-box",
-        display: "flex", flexDirection: "column", justifyContent: "center", gap: 8, width: "100%",
-      },
-      linkLabelStyle: {
-        fontFamily: archivo, fontWeight: 600, fontSize: "var(--fs-body)",
-        color: strong, margin: 0,
-      },
-      urlRowStyle: { display: "flex", flexDirection: "row", gap: 10, alignItems: "center", width: "100%" },
-      urlTextStyle: {
-        fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-body)",
-        color: bodyText, flexGrow: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-      },
-      copyIconStyle: {
-        fontFamily: inter, fontSize: "var(--fs-link)", color: accentText, background: "none",
-        border: "none", cursor: "pointer", flexShrink: 0, padding: 4,
-      },
-      copyHoverStyle: { opacity: 0.7 },
+      playIconSvgSize: m ? 34 : 48,
 
       case2HeaderStyle: {
         position: "relative", zIndex: 1,
