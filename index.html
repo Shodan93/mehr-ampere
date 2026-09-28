@@ -95,7 +95,7 @@
             <span style="{{ quoteRoleStyle }}">Online Marketing · Website · SEO · Content</span>
           </div>
         </div>
-        <img src="assets/svenja-portrait-03.jpg" alt="Svenja Mumelter" width="262" height="262" style="{{ introPortraitStyle }}" />
+        <img src="assets/svenja-portrait-03.jpg" alt="Svenja Mumelter" width="244" height="244" style="{{ introPortraitStyle }}" />
       </div>
     </section>
 
@@ -361,9 +361,10 @@ class Component extends DCLogic {
         lineHeight: 1.5, color: "#c9cdd0",
       },
       introPortraitStyle: {
-        width: m ? 160 : 262, height: m ? 160 : 262, flexShrink: 0,
+        width: m ? 160 : 244, height: m ? 160 : 244, flexShrink: 0,
         borderRadius: "50%", objectFit: "cover", display: "block",
         order: m ? -1 : 0,
+        marginRight: m ? 0 : "clamp(24px, 6vw, 88px)", /* still clearly right, but a little closer to the copy */
       },
 
       /* "Kurz zu mir": label + two-tone uppercase headline + three skill blocks with thin lime line icons */
