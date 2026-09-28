@@ -95,7 +95,7 @@
             <span style="{{ quoteRoleStyle }}">Online Marketing · Website · SEO · Content</span>
           </div>
         </div>
-        <img src="assets/svenja-portrait-03.jpg" alt="Svenja Mumelter" width="292" height="292" style="{{ introPortraitStyle }}" />
+        <img src="assets/svenja-portrait-03.jpg" alt="Svenja Mumelter" width="262" height="262" style="{{ introPortraitStyle }}" />
       </div>
     </section>
 
@@ -299,8 +299,8 @@ class Component extends DCLogic {
       heroStyle: {
         position: "relative", zIndex: 1,
         display: "flex", flexDirection: "column",
-        gap: m ? 48 : 88,
-        padding: m ? "28px 24px 56px 24px" : "36px 72px 92px 72px",
+        gap: m ? 40 : 72,
+        padding: m ? "26px 24px 48px 24px" : "32px 72px 76px 72px",
       },
       heroTopRowStyle: {
         display: "flex", flexDirection: m ? "column" : "row", flexWrap: "wrap",
@@ -313,7 +313,7 @@ class Component extends DCLogic {
         fontFamily: archivo, fontWeight: 600, fontSize: m ? 15 : 16, lineHeight: 1.4,
         color: strong,
       },
-      heroTextStyle: { display: "flex", flexDirection: "column", gap: m ? 16 : 24, maxWidth: 1200 },
+      heroTextStyle: { display: "flex", flexDirection: "column", gap: m ? 14 : 20, maxWidth: 1200 },
       heroKickerStyle: {
         fontFamily: archivo, fontWeight: 600, fontSize: m ? 13 : 15,
         letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.4,
@@ -321,7 +321,7 @@ class Component extends DCLogic {
       },
       h1Style: {
         fontFamily: archivo, fontWeight: 800,
-        fontSize: m ? "calc((100vw - 48px) / 10.8)" : "min(76px, calc((100vw - 144px) / 15.8))",
+        fontSize: m ? "calc((100vw - 48px) / 13.5)" : "min(61px, calc((100vw - 144px) / 19.75))",
         lineHeight: 1.0, letterSpacing: "0.005em", textTransform: "uppercase",
         color: strong, margin: 0,
       },
@@ -333,25 +333,25 @@ class Component extends DCLogic {
         position: "relative", zIndex: 1,
         backgroundColor: "var(--ink-900)",
         display: "flex", justifyContent: "center",
-        padding: m ? "52px 24px 52px 24px" : "72px 72px 72px 72px",
+        padding: m ? "44px 24px 44px 24px" : "52px 72px 52px 72px",
       },
       quoteInnerStyle: {
         display: "flex", flexDirection: m ? "column" : "row",
         alignItems: m ? "flex-start" : "center", justifyContent: "space-between",
         gap: m ? 28 : 72, width: "100%",
       },
-      quoteTextWrapStyle: { display: "flex", flexDirection: "column", gap: m ? 14 : 18, maxWidth: 640, minWidth: 0 },
+      quoteTextWrapStyle: { display: "flex", flexDirection: "column", gap: m ? 12 : 14, maxWidth: 620, minWidth: 0 },
       quoteHelloStyle: {
-        fontFamily: archivo, fontWeight: 800, fontSize: m ? 30 : 44, lineHeight: 1.05,
+        fontFamily: archivo, fontWeight: 800, fontSize: m ? 26 : 37, lineHeight: 1.05,
         textTransform: "uppercase", letterSpacing: "0.005em",
         color: accent, margin: "0 0 4px 0",
       },
       introAboutStyle: {
         fontFamily: archivo, fontWeight: 400,
-        fontSize: m ? 17 : 20, lineHeight: 1.55,
+        fontSize: m ? 16 : 18.5, lineHeight: 1.55,
         color: "#ffffff", margin: 0,
       },
-      quoteCaptionStyle: { display: "flex", flexDirection: "column", gap: 2, marginTop: m ? 12 : 16 },
+      quoteCaptionStyle: { display: "flex", flexDirection: "column", gap: 2, marginTop: m ? 10 : 12 },
       quoteNameStyle: {
         fontFamily: archivo, fontWeight: 700, fontSize: 15, letterSpacing: "0.1em", textTransform: "uppercase",
         lineHeight: 1.5, color: "#ffffff",
@@ -361,7 +361,7 @@ class Component extends DCLogic {
         lineHeight: 1.5, color: "#c9cdd0",
       },
       introPortraitStyle: {
-        width: m ? 176 : 292, height: m ? 176 : 292, flexShrink: 0,
+        width: m ? 160 : 262, height: m ? 160 : 262, flexShrink: 0,
         borderRadius: "50%", objectFit: "cover", display: "block",
         order: m ? -1 : 0,
       },
@@ -370,8 +370,8 @@ class Component extends DCLogic {
       introStyle: {
         position: "relative", zIndex: 1,
         backgroundColor: "transparent",
-        display: "flex", flexDirection: "column", gap: m ? 40 : 64,
-        padding: m ? "64px 24px 56px 24px" : "112px 72px 96px 72px",
+        display: "flex", flexDirection: "column", gap: m ? 34 : 54,
+        padding: m ? "54px 24px 48px 24px" : "95px 72px 82px 72px",
         alignItems: "flex-start",
       },
       skillsHeadStyle: { display: "flex", flexDirection: "column", gap: m ? 12 : 16 },
@@ -382,25 +382,25 @@ class Component extends DCLogic {
       },
       introH2Style: {
         fontFamily: archivo, fontWeight: 800,
-        fontSize: m ? "calc((100vw - 48px) / 12)" : "min(52px, calc((100vw - 144px) / 24))",
+        fontSize: m ? "calc((100vw - 48px) / 14)" : "min(44px, calc((100vw - 144px) / 28.5))",
         lineHeight: 1.05, letterSpacing: "0.005em", textTransform: "uppercase",
         color: strong, margin: 0, maxWidth: 1240,
       },
       h2AccentStyle: { display: "block", color: accent },
       skillsGridStyle: m ? {
-        display: "flex", flexDirection: "column", gap: 36, width: "100%",
+        display: "flex", flexDirection: "column", gap: 30, width: "100%",
       } : {
-        display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 56, width: "100%",
+        display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 48, width: "100%",
       },
-      skillStyle: { display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 14 },
-      skillIconSize: m ? 48 : 56,
+      skillStyle: { display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12 },
+      skillIconSize: m ? 42 : 48,
       skillTitleStyle: {
-        fontFamily: archivo, fontWeight: 700, fontSize: m ? 20 : 22, lineHeight: 1.2,
+        fontFamily: archivo, fontWeight: 700, fontSize: m ? 18 : 19, lineHeight: 1.2,
         letterSpacing: "0.02em", textTransform: "uppercase",
         color: strong, margin: "4px 0 0 0",
       },
       skillTextStyle: {
-        fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-body)", lineHeight: 1.6,
+        fontFamily: archivo, fontWeight: 400, fontSize: m ? 16 : 16.5, lineHeight: 1.6,
         color: bodyText, margin: 0,
       },
       /* small uppercase label used for "CASE 01/02" etc. (Barlow instead of the old monospace) */
