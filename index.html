@@ -55,12 +55,12 @@
     .toc a { color: inherit; text-decoration: none; }
     .toc a:hover { color: inherit; text-decoration: underline; text-decoration-color: var(--accent-lime); }
     [id] { scroll-margin-top: 24px; }
-    /* Video tile hover/focus: tile darkens a touch, red play disc darkens and grows (inline styles need !important) */
-    .video-tile, .video-tile .vt-play { transition: background-color .18s ease, color .18s ease, transform .18s ease; }
-    .video-tile:hover, .video-tile:focus-visible { background-color: #ececec !important; }
-    .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { color: #c92e12 !important; transform: scale(1.06); }
+    /* Video tile: no tile hover. Only the play button swaps colours (red disc/white ring+triangle -> white disc/red ring+triangle), instantly, no transition, no gradient. Inline styles need !important. */
+    .video-tile { cursor: pointer; }
+    .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { background-color: #ffffff !important; box-shadow: inset 0 0 0 6px #ffffff, inset 0 0 0 8px #e6381a !important; }
+    .video-tile:hover .vt-play path, .video-tile:focus-visible .vt-play path { fill: #e6381a; }
+    @media (max-width: 859px) { .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { box-shadow: inset 0 0 0 4px #ffffff, inset 0 0 0 5.5px #e6381a !important; } }
     .video-tile:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
-    @media (prefers-reduced-motion: reduce) { .video-tile, .video-tile .vt-play { transition: none; } .video-tile:hover .vt-play { transform: none; } }
   </style>
 </helmet>
 <div style="{{ pageStyle }}">
@@ -255,9 +255,9 @@ class Component extends DCLogic {
     const lh = "var(--lh-tight)";
     const lsWide = "var(--ls-wide)";
     const accentLine = "rgba(175,203,8,0.55)"; /* keep in sync with --accent-lime above (also the bullet check-icon stroke) */
-    const tileBorder = "inset 0 0 0 2px #afcb08"; /* solid lime 2px outline, like Mehr Ampere's line icons; keep in sync with --accent-lime */
     const badgeRed = "#e6381a"; /* red of Mehr Ampere's "System-Intelligenz" badge: play button only */
-    const tileGrey = "#f4f4f4"; /* flat light grey, like Mehr Ampere's info tiles */
+    const tileGrey = "#f7f7f7"; /* flat light grey, no border, no shadow, like Mehr Ampere's FAQ/info boxes (#f9f9f9 on white; one step darker because our page is #fdfdfa) */
+    const tileRadius = 16;
     const accentA = (a) => "rgba(175,203,8," + a + ")";
     const paperA = (a) => "rgba(253,253,250," + a + ")";
 
@@ -488,9 +488,8 @@ class Component extends DCLogic {
       qrCardStyle: {
         gridColumn: 1, gridRow: 2, boxSizing: "border-box",
         display: "flex", flexDirection: "row", gap: 16, alignItems: "center",
-        borderRadius: 12,
+        borderRadius: tileRadius,
         backgroundColor: tileGrey,
-        boxShadow: tileBorder,
         padding: m ? "16px 18px" : "16px 20px",
         width: "100%",
       },
@@ -510,10 +509,9 @@ class Component extends DCLogic {
         position: "relative",
         width: "100%",
         height: m ? 240 : 477,
-        borderRadius: 12,
+        borderRadius: tileRadius,
         overflow: "hidden",
         backgroundColor: tileGrey,
-        boxShadow: tileBorder,
         padding: m ? "24px 20px" : "44px",
         display: "flex", flexDirection: "column", gap: m ? 12 : 20,
         justifyContent: "center", alignItems: "center", textAlign: "center",
@@ -539,9 +537,8 @@ class Component extends DCLogic {
       },
       buttonRowStyle: { gridColumn: 2, gridRow: 2, display: "flex", width: "100%" },
       externalLinkCardStyle: {
-        borderRadius: 12,
+        borderRadius: tileRadius,
         backgroundColor: tileGrey,
-        boxShadow: tileBorder,
         padding: m ? "16px 18px" : "16px 20px", boxSizing: "border-box",
         display: "flex", flexDirection: "column", justifyContent: "center", gap: 8, width: "100%",
       },
