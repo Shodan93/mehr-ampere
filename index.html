@@ -57,6 +57,9 @@
     [id] { scroll-margin-top: 24px; }
     /* Video tile: no tile hover. Only the play button swaps colours (red disc/white ring+triangle -> white disc/red ring+triangle), instantly, no transition, no gradient. Inline styles need !important. */
     .video-tile { cursor: pointer; }
+    /* Pill button hover/focus: instant switch to lime with dark text (5:1), like mehr-ampere.de; no transition */
+    .btn-pill:hover, .btn-pill:focus-visible { background-color: var(--accent-lime) !important; color: var(--ink-900) !important; }
+    .btn-pill:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
     .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { background-color: #ffffff !important; box-shadow: inset 0 0 0 6px #ffffff, inset 0 0 0 8px #e6381a !important; }
     .video-tile:hover .vt-play path, .video-tile:focus-visible .vt-play path { fill: #e6381a; }
     @media (max-width: 859px) { .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { box-shadow: inset 0 0 0 4px #ffffff, inset 0 0 0 5.5px #e6381a !important; } }
@@ -185,7 +188,7 @@
           <div style="{{ bulletRowStyle2 }}"><div style="{{ case2BulletDotWrap }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#afcb08" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg></div><span style="{{ bulletTextStyle2 }}">Erfolgsmessung mit KPI-Systematik und UTM-Konzept geplant, um Marketingmaßnahmen strukturiert auszuwerten.</span></div>
         </div>
         <p style="{{ caseNoteStyle }}">Konzeptarbeit für ein fiktives Beispielprodukt.</p>
-        <a href="https://drive.google.com/file/d/1D6PM6L-wvPN5Ki1uZ-346SJD_HgwOttX/view?usp=sharing" target="_blank" rel="noopener" style-hover="{{ primaryBtnHoverStyle }}" style="{{ primaryBtnStyle }}">GESAMTE CASE STUDY ANSEHEN</a>
+        <a href="https://drive.google.com/file/d/1D6PM6L-wvPN5Ki1uZ-346SJD_HgwOttX/view?usp=sharing" target="_blank" rel="noopener" class="btn-pill" style="{{ primaryBtnStyle }}">Gesamte Case Study ansehen</a>
       </div>
     </div>
   </div>
@@ -631,15 +634,15 @@ class Component extends DCLogic {
         fontFamily: archivo, fontWeight: 400, fontSize: "var(--fs-caption)", lineHeight: 1.5,
         color: muted, margin: m ? "-4px 0 0 0" : "-8px 0 0 0",
       },
+      /* Pill button like Mehr Ampere's "Mehr erfahren": dark grey, generous side padding, sentence case; hover = instant switch to lime with dark text (5:1) */
       primaryBtnStyle: {
-        display: "flex", alignItems: "center", justifyContent: "center",
-        width: m ? "100%" : 248, height: 44,
+        display: "inline-flex", alignItems: "center", justifyContent: "center",
+        height: 46, padding: m ? "0 36px" : "0 50px",
         borderRadius: 999, backgroundColor: "var(--ink-900)", color: "var(--white)",
-        fontFamily: archivo, fontWeight: 700, fontSize: "var(--fs-button)",
-        letterSpacing: "0.04em", textDecoration: "none", textAlign: "center",
+        fontFamily: archivo, fontWeight: 600, fontSize: m ? 17 : 18,
+        letterSpacing: 0, textDecoration: "none", textAlign: "center", whiteSpace: "nowrap",
         boxSizing: "border-box",
       },
-      primaryBtnHoverStyle: { backgroundColor: accent, color: "var(--text-on-accent)" },
 
       /* Footer like mehr-ampere.de: thin rule, one row (copyright left, credits right), plain Barlow in their secondary grey; a bit larger than theirs for readability */
       footerStyle: {
