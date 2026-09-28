@@ -596,16 +596,16 @@ class Component extends DCLogic {
 
       case2Style: {
         position: "relative",
-        backgroundColor: sunken,
+        backgroundColor: paper,
         display: "flex", flexDirection: "column",
         gap: m ? 24 : 20,
         padding: m ? "48px 24px" : "48px 72px",
         alignItems: "flex-start", overflow: "hidden",
       },
-      /* Placeholder background until a real image is dropped into assets/ */
+      /* Very light vertical fade like Mehr Ampere's page banners: page white for the top ~40 %, then easing to light grey at the bottom */
       case2BgStyle: {
         position: "absolute", inset: 0, zIndex: 0,
-        backgroundImage: "radial-gradient(60% 80% at 100% 100%, " + accentA(0.14) + " 0%, " + accentA(0) + " 70%)",
+        backgroundImage: "linear-gradient(180deg, " + paper + " 0%, " + paper + " 40%, #f5f5f5 100%)",
       },
       case2WashStyle: { display: "none" },
 
