@@ -134,12 +134,14 @@
         </div>
       </div>
       <div style="{{ rightColStyle }}">
-        <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" style="{{ videoCardStyle }}" data-name="video-card">
-          <div style-hover="{{ playHoverStyle }}" style="{{ playIconStyle }}" aria-label="Walkthrough abspielen">
-            <svg width="{{ playIconSvgSize }}" height="{{ playIconSvgSize }}" viewBox="0 0 24 24" fill="#ffffff"><path d="M8 5v14l11-7z"></path></svg>
+        <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" style-hover="{{ videoCardHoverStyle }}" style="{{ videoCardStyle }}" data-name="video-card" aria-label="Shop-Walkthrough abspielen (Stream über Google Drive)">
+          <div style="{{ playIconStyle }}" aria-hidden="true">
+            <svg width="{{ playIconSvgSize }}" height="{{ playIconSvgSize }}" viewBox="0 0 48 48" fill="none" stroke="#e21b0a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="17"></circle><path d="M20.5 17.2v13.6L31 24z"></path></svg>
           </div>
-          <span style="{{ videoLabelStyle }}">SHOP-WALKTHROUGH</span>
-          <span style="{{ videoSubLabelStyle }}">Zum Abspielen klicken – Stream über Google Drive.</span>
+          <div style="{{ videoTextWrapStyle }}">
+            <span style="{{ videoLabelStyle }}">Shop-Walkthrough</span>
+            <span style="{{ videoSubLabelStyle }}">Zum Abspielen klicken – Stream über Google Drive.</span>
+          </div>
         </a>
         <div style="{{ buttonRowStyle }}">
           <div style="{{ externalLinkCardStyle }}">
@@ -245,7 +247,7 @@ class Component extends DCLogic {
     const lh = "var(--lh-tight)";
     const lsWide = "var(--ls-wide)";
     const accentLine = "rgba(175,203,8,0.55)"; /* keep in sync with --accent-lime above (also the bullet check-icon stroke) */
-    const eonRed = "#ea1c0a"; /* E.ON red, used sparingly: play button only */
+    const eonRed = "#e21b0a"; /* E.ON red (#ea1c0a) a hair darker so white caption text passes 4.5:1; used only for the video tile, keep in sync with the play-icon SVG stroke */
     const accentA = (a) => "rgba(175,203,8," + a + ")";
     const paperA = (a) => "rgba(253,253,250," + a + ")";
 
@@ -492,39 +494,38 @@ class Component extends DCLogic {
         display: "flex", flexDirection: "column", gap: 16,
         alignItems: "flex-start", width: "100%",
       } : { display: "contents" },
+      /* Flat red tile in the style of Mehr Ampere's benefit tiles: white rounded icon square top-left, bold white title bottom-left */
       videoCardStyle: {
         gridColumn: 2, gridRow: 1, boxSizing: "border-box",
         position: "relative",
         width: "100%",
-        height: m ? 195 : 477,
+        height: m ? 220 : 477,
         borderRadius: 12,
         overflow: "hidden",
-        /* Placeholder thumbnail until a real one is dropped into assets/ */
-        backgroundImage: "radial-gradient(70% 80% at 50% 45%, " + paper + " 0%, " + accentA(0.10) + " 100%), linear-gradient(135deg, #f3f5ee 0%, #eef1e6 100%)",
-        backgroundSize: "cover", backgroundPosition: "center",
-        boxShadow: "inset 0 0 0 1px " + accentLine,
-        display: "flex", flexDirection: "column", gap: m ? 10 : 16,
-        justifyContent: "center", alignItems: "center",
+        backgroundColor: eonRed,
+        padding: m ? "22px 22px 24px 22px" : "44px 44px 48px 44px",
+        display: "flex", flexDirection: "column",
+        justifyContent: "space-between", alignItems: "flex-start",
         textDecoration: "none",
+        transition: "background-color .15s ease",
       },
+      videoCardHoverStyle: { backgroundColor: "#c81808" },
       playIconStyle: {
-        width: m ? 56 : 104, height: m ? 56 : 104,
-        borderRadius: "50%",
-        /* flat red disc with a thin white inner ring, like Mehr Ampere's "System-Intelligenz" badge (no shadow, brand is flat) */
-        boxShadow: "inset 0 0 0 " + (m ? 3 : 4) + "px " + eonRed + ", inset 0 0 0 " + (m ? 5 : 6.5) + "px #ffffff",
-        background: eonRed,
-        border: "none", cursor: "pointer",
+        width: m ? 64 : 112, height: m ? 64 : 112,
+        borderRadius: m ? 8 : 12,
+        background: "#ffffff",
         display: "flex", alignItems: "center", justifyContent: "center",
+        flexShrink: 0,
       },
-      playHoverStyle: { background: "#c81808" },
-      playIconSvgSize: m ? 24 : 44,
+      playIconSvgSize: m ? 46 : 80,
+      videoTextWrapStyle: { display: "flex", flexDirection: "column", gap: m ? 4 : 8 },
       videoLabelStyle: {
-        fontFamily: inter, fontWeight: 600, fontSize: "var(--fs-button)",
-        letterSpacing: m ? "0.03em" : "0.04em", color: strong, margin: 0,
+        fontFamily: archivoNarrow, fontWeight: 700, fontSize: m ? 24 : 36,
+        letterSpacing: ls, lineHeight: 1.1, color: "#ffffff", margin: 0,
       },
       videoSubLabelStyle: {
-        fontFamily: inter, fontWeight: 400, fontSize: "var(--fs-caption)",
-        color: muted, textAlign: "center", margin: 0,
+        fontFamily: inter, fontWeight: 500, fontSize: "var(--fs-caption)",
+        color: "#ffffff", margin: 0,
       },
       buttonRowStyle: { gridColumn: 2, gridRow: 2, display: "flex", width: "100%" },
       externalLinkCardStyle: {
