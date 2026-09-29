@@ -58,9 +58,12 @@
     .btn-pill:hover, .btn-pill:focus-visible { background-color: var(--accent-lime) !important; color: var(--ink-900) !important; }
     .btn-pill:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
     /* preview hover: the play button swaps red/white, instantly (no transition) */
-    .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { background-color: #ffffff !important; box-shadow: inset 0 0 0 5px #ffffff, inset 0 0 0 7px #ea1b0a !important; }
-    .video-tile:hover .vt-play path, .video-tile:focus-visible .vt-play path { fill: #ea1b0a; }
-    @media (max-width: 859px) { .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { box-shadow: inset 0 0 0 4px #ffffff, inset 0 0 0 5.5px #ea1b0a !important; } }
+    .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { background-color: #ffffff !important; box-shadow: inset 0 0 0 5px #ffffff, inset 0 0 0 6.5px rgba(234,27,10,0.9) !important; }
+    .video-tile:hover .vt-play path, .video-tile:focus-visible .vt-play path { fill: #ea1b0a; stroke: #ea1b0a; }
+    @media (max-width: 859px) { .video-tile:hover .vt-play, .video-tile:focus-visible .vt-play { box-shadow: inset 0 0 0 4px #ffffff, inset 0 0 0 5.2px rgba(234,27,10,0.9) !important; } }
+    /* small utility links under the walkthrough CTA */
+    .util-link:hover { color: var(--ink-700) !important; text-decoration-color: var(--ink-900) !important; }
+    .util-link:focus-visible { outline: 2px solid var(--ink-900); outline-offset: 3px; }
     .video-tile:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
   </style>
 </helmet>
@@ -153,7 +156,7 @@
           <div style="{{ c1BrowserBarStyle }}" aria-hidden="true"><span style="{{ c1DotStyle }}"></span><span style="{{ c1DotStyle }}"></span><span style="{{ c1DotStyle }}"></span></div>
           <div style="{{ c1ScreenStyle }}">
             <div class="vt-play" style="{{ playIconStyle }}" aria-hidden="true">
-              <svg width="{{ playIconSvgSize }}" height="{{ playIconSvgSize }}" viewBox="0 0 24 24" fill="#ffffff"><path d="M9 6.8v10.4l8.2-5.2z"></path></svg>
+              <svg width="{{ playIconSvgSize }}" height="{{ playIconSvgSize }}" viewBox="0 0 24 24" fill="#ffffff"><path d="M9 6.2v11.6l9.2-5.8z" stroke="#ffffff" stroke-width="0.8" stroke-linejoin="round"></path></svg>
             </div>
           </div>
         </a>
@@ -164,6 +167,11 @@
           </div>
           <div style="{{ c1CtaWrapStyle }}">
             <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="btn-pill" style="{{ primaryBtnStyle }}">Walkthrough ansehen</a>
+            <div style="{{ c1UtilRowStyle }}">
+              <button type="button" class="util-link" style="{{ c1UtilLinkStyle }}" onClick="{{ copyLink1 }}">{{ copyLabel1 }}</button>
+              <span style="{{ c1UtilSepStyle }}" aria-hidden="true">·</span>
+              <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="util-link" style="{{ c1UtilLinkStyle }}">Extern öffnen</a>
+            </div>
             <span style="{{ c1CtaNoteStyle }}">Öffnet extern in Google Drive.</span>
           </div>
         </figcaption>
@@ -215,6 +223,7 @@
 class Component extends DCLogic {
   state = {
     isMobile: typeof window !== "undefined" ? window.innerWidth <= 859 : false,
+    copied1: false,
   };
 
   componentDidMount() {
@@ -227,6 +236,14 @@ class Component extends DCLogic {
   componentWillUnmount() {
     window.removeEventListener("resize", this._onResize);
   }
+
+  copyLink1 = () => {
+    const text = "https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing";
+    if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {});
+    this.setState({ copied1: true });
+    clearTimeout(this._t1);
+    this._t1 = setTimeout(() => this.setState({ copied1: false }), 1600);
+  };
 
   renderVals() {
     const m = this.state.isMobile;
@@ -247,6 +264,8 @@ class Component extends DCLogic {
     const playRed = "#ea1b0a"; /* sampled from the red "PV-Experten Check starten" bar on mehr-ampere.de */
 
     return {
+      copyLabel1: this.state.copied1 ? "Link kopiert ✓" : "Link kopieren",
+      copyLink1: this.copyLink1,
 
       pageStyle: {
         fontFamily: archivo,
@@ -492,11 +511,11 @@ class Component extends DCLogic {
         backgroundColor: "#ffffff", textDecoration: "none",
       },
       c1BrowserBarStyle: {
-        display: "flex", alignItems: "center", gap: 7,
-        height: m ? 26 : 32, padding: m ? "0 12px" : "0 16px",
-        backgroundColor: "#f1f1f1",
+        display: "flex", alignItems: "center", gap: 6,
+        height: m ? 22 : 26, padding: m ? "0 11px" : "0 14px",
+        backgroundColor: "#e4e5e6", borderBottom: "1px solid #d6d8d9",
       },
-      c1DotStyle: { width: m ? 8 : 10, height: m ? 8 : 10, borderRadius: "50%", backgroundColor: "#d7d9da", display: "block" },
+      c1DotStyle: { width: m ? 7 : 8, height: m ? 7 : 8, borderRadius: "50%", backgroundColor: "#c3c6c8", display: "block" },
       c1ScreenStyle: {
         position: "relative", aspectRatio: "16 / 9",
         backgroundColor: "#e7e9e5",
@@ -504,14 +523,14 @@ class Component extends DCLogic {
         backgroundSize: "cover", backgroundPosition: "center",
         display: "flex", alignItems: "center", justifyContent: "center",
       },
-      /* red/white play button: red disc, thin white inner ring, white triangle (hover swaps to white disc, red ring + triangle) */
+      /* red play button: flat red disc, a fine white hairline ring, larger optically centred triangle (hover swaps red/white) */
       playIconStyle: {
         width: m ? 68 : 92, height: m ? 68 : 92, borderRadius: "50%", flexShrink: 0,
         backgroundColor: playRed,
-        boxShadow: "inset 0 0 0 " + (m ? 4 : 5) + "px " + playRed + ", inset 0 0 0 " + (m ? 5.5 : 7) + "px #ffffff",
+        boxShadow: "inset 0 0 0 " + (m ? 4 : 5) + "px " + playRed + ", inset 0 0 0 " + (m ? 5.2 : 6.5) + "px rgba(255,255,255,0.85)",
         display: "flex", alignItems: "center", justifyContent: "center",
       },
-      playIconSvgSize: m ? 28 : 36,
+      playIconSvgSize: m ? 38 : 52,
       c1CaptionStyle: {
         display: "flex", flexDirection: m ? "column" : "row", flexWrap: "wrap",
         alignItems: m ? "flex-start" : "center", justifyContent: "space-between",
@@ -527,6 +546,13 @@ class Component extends DCLogic {
         color: bodyText,
       },
       c1CtaWrapStyle: { display: "flex", flexDirection: "column", alignItems: m ? "flex-start" : "flex-end", gap: 6, flexShrink: 0 },
+      c1UtilRowStyle: { display: "flex", alignItems: "center", gap: 10, marginTop: 4 },
+      c1UtilLinkStyle: {
+        fontFamily: archivo, fontWeight: 600, fontSize: 14, lineHeight: 1.4,
+        color: strong, background: "none", border: "none", padding: 0, cursor: "pointer",
+        textDecoration: "underline", textDecorationColor: "var(--ink-200)", textUnderlineOffset: 3,
+      },
+      c1UtilSepStyle: { fontFamily: archivo, fontSize: 14, color: muted },
       c1CtaNoteStyle: {
         fontFamily: archivo, fontWeight: 400, fontSize: 13.5, lineHeight: 1.4,
         color: muted,
