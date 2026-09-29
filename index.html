@@ -53,9 +53,9 @@
     [id] { scroll-margin-top: 24px; }
     .video-tile { cursor: pointer; }
     /* Pill button hover/focus: instant switch to lime with dark text (5:1), like mehr-ampere.de; no transition */
-    /* Lime contact pills (like "Jetzt Experten-Check starten"): hover = instant switch to dark grey with white text/icon */
-    .btn-lime:hover, .btn-lime:focus-visible { background-color: var(--ink-900) !important; color: #ffffff !important; }
-    .btn-lime:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
+    /* contact bar actions on dark grey: hover = instant switch to white with dark text */
+    .cta-mail:hover, .cta-mail:focus-visible, .cta-phone:hover, .cta-phone:focus-visible { background-color: #ffffff !important; color: var(--ink-900) !important; border-color: #ffffff !important; }
+    .cta-mail:focus-visible, .cta-phone:focus-visible { outline: 2px solid var(--accent-lime); outline-offset: 3px; }
     .btn-pill:hover, .btn-pill:focus-visible { background-color: var(--accent-lime) !important; color: var(--ink-900) !important; }
     .btn-pill:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
     /* preview hover: the play button swaps red/white, instantly (no transition) */
@@ -120,14 +120,13 @@
         </div>
       </div>
       <section id="kontakt" aria-labelledby="kontakt-title" style="{{ ctaStyle }}">
-        <div style="{{ ctaTabStyle }}" aria-hidden="true"></div>
         <div style="{{ ctaTextWrapStyle }}">
           <span style="{{ ctaLabelStyle }}">Kontakt</span>
           <h2 id="kontakt-title" style="{{ ctaTextStyle }}">Ich bin ab sofort verfügbar und freue mich auf ein Gespräch.</h2>
         </div>
         <div style="{{ ctaLinksStyle }}">
-          <a href="mailto:svenja.mumelter@gmx.de" class="btn-lime" aria-label="E-Mail an svenja.mumelter@gmx.de schreiben" style="{{ ctaLinkStyle }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg><span>svenja.mumelter@gmx.de</span></a>
-          <a href="tel:+4917681922933" class="btn-lime" aria-label="Svenja Mumelter anrufen: 0176 81922933" style="{{ ctaLinkStyle }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>0176 81922933</span></a>
+          <a href="mailto:svenja.mumelter@gmx.de" class="cta-mail" aria-label="E-Mail an svenja.mumelter@gmx.de schreiben" style="{{ ctaMailStyle }}"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg><span>E-Mail schreiben</span></a>
+          <a href="tel:+4917681922933" class="cta-phone" aria-label="Svenja Mumelter anrufen: 0176 81922933" style="{{ ctaPhoneStyle }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>0176 81922933</span></a>
         </div>
       </section>
     </div>
@@ -402,44 +401,44 @@ class Component extends DCLogic {
         letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.4,
         color: muted, whiteSpace: "nowrap", margin: 0,
       },
-      /* Contact card like Mehr Ampere's info modal: white card, lime tab top-left, lime pill buttons (dark text for 5:1 instead of their white 1.9:1) */
+      /* Contact bar: flat dark grey like the intro band, compact, no shadow; lime label, white line, lime primary + outline phone */
       ctaStyle: {
-        position: "relative", overflow: "hidden",
         display: "flex", flexDirection: m ? "column" : "row", flexWrap: "wrap",
-        alignItems: m ? "stretch" : "center", justifyContent: "space-between",
-        gap: m ? 20 : "20px 32px", width: "100%", boxSizing: "border-box",
-        padding: m ? "32px 20px 24px 20px" : "36px 40px 34px 40px",
-        borderRadius: 20,
-        backgroundColor: "#ffffff",
-        boxShadow: "0 14px 40px -18px rgba(66,72,76,0.22)",
-      },
-      ctaTabStyle: {
-        position: "absolute", top: 0, left: 0,
-        width: m ? 64 : 82, height: m ? 12 : 14,
-        borderRadius: "0 0 999px 0", backgroundColor: accent,
+        alignItems: m ? "flex-start" : "center", justifyContent: "space-between",
+        gap: m ? 18 : "16px 32px", width: "100%", boxSizing: "border-box",
+        padding: m ? "22px 20px" : "24px 32px",
+        borderRadius: 12,
+        backgroundColor: "var(--ink-900)",
       },
       ctaTextWrapStyle: {
-        display: "flex", flexDirection: "column", gap: 8, minWidth: 0,
-        flex: m ? "0 0 auto" : "1 1 440px", /* on narrower desktops the buttons wrap below instead of squeezing the headline */
+        display: "flex", flexDirection: "column", gap: 4, minWidth: 0,
+        flex: m ? "0 0 auto" : "1 1 420px",
       },
       ctaLabelStyle: {
-        fontFamily: archivo, fontWeight: 600, fontSize: m ? 13 : 14,
-        letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.4, color: muted, margin: 0,
+        fontFamily: archivo, fontWeight: 600, fontSize: 13,
+        letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.4, color: accent, margin: 0,
       },
       ctaTextStyle: {
-        fontFamily: archivo, fontWeight: 700,
-        fontSize: m ? 22 : 26, lineHeight: 1.3,
-        color: strong, margin: 0, maxWidth: 700, textWrap: "balance",
+        fontFamily: archivo, fontWeight: 600,
+        fontSize: m ? 18 : 20, lineHeight: 1.35,
+        color: "#ffffff", margin: 0,
       },
       ctaLinksStyle: {
-        display: "flex", flexDirection: m ? "column" : "row",
-        gap: 12, flexShrink: 0,
+        display: "flex", flexDirection: "row", flexWrap: "wrap",
+        gap: 10, flexShrink: 0,
       },
-      ctaLinkStyle: {
-        display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
-        height: 48, padding: "0 26px", borderRadius: 999, width: m ? "100%" : "auto",
+      ctaMailStyle: {
+        display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
+        height: 42, padding: "0 18px", borderRadius: 8, border: "1.5px solid " + accent,
         backgroundColor: accent, color: "var(--ink-900)",
-        fontFamily: archivo, fontWeight: 600, fontSize: m ? 16 : 17,
+        fontFamily: archivo, fontWeight: 600, fontSize: 16,
+        textDecoration: "none", whiteSpace: "nowrap", boxSizing: "border-box",
+      },
+      ctaPhoneStyle: {
+        display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
+        height: 42, padding: "0 16px", borderRadius: 8, border: "1.5px solid rgba(255,255,255,0.45)",
+        backgroundColor: "transparent", color: "#ffffff",
+        fontFamily: archivo, fontWeight: 600, fontSize: 16,
         textDecoration: "none", whiteSpace: "nowrap", boxSizing: "border-box",
       },
       case1Style: {
