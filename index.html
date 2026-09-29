@@ -53,9 +53,8 @@
     [id] { scroll-margin-top: 24px; }
     .video-tile { cursor: pointer; }
     /* Pill button hover/focus: instant switch to lime with dark text (5:1), like mehr-ampere.de; no transition */
-    /* contact bar actions: like the earlier lime pills, hover = instant switch to dark grey with white text (a shade darker than the bar so it reads); lime border stays on the mail button */
-    .cta-mail:hover, .cta-mail:focus-visible { background-color: #2f3437 !important; color: #ffffff !important; }
-    .cta-phone:hover, .cta-phone:focus-visible { background-color: #2f3437 !important; color: #ffffff !important; border-color: #ffffff !important; }
+    /* contact bar actions like the buttons on mehr-ampere.de: grey with white text, hover = instant switch to lime with dark text */
+    .cta-mail:hover, .cta-mail:focus-visible, .cta-phone:hover, .cta-phone:focus-visible { background-color: var(--accent-lime) !important; color: var(--ink-900) !important; border-color: var(--accent-lime) !important; }
     .cta-mail:focus-visible, .cta-phone:focus-visible { outline: 2px solid var(--accent-lime); outline-offset: 3px; }
     .btn-pill:hover, .btn-pill:focus-visible { background-color: var(--accent-lime) !important; color: var(--ink-900) !important; }
     .btn-pill:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
@@ -430,8 +429,8 @@ class Component extends DCLogic {
       },
       ctaMailStyle: {
         display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
-        height: 42, padding: "0 18px", borderRadius: 8, border: "1.5px solid " + accent,
-        backgroundColor: accent, color: "var(--ink-900)",
+        height: 42, padding: "0 18px", borderRadius: 8, border: "1.5px solid #5a6166",
+        backgroundColor: "#5a6166", color: "#ffffff", /* a step lighter than the bar so the grey button reads on dark */
         fontFamily: archivo, fontWeight: 600, fontSize: 16,
         textDecoration: "none", whiteSpace: "nowrap", boxSizing: "border-box",
       },
