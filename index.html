@@ -166,7 +166,7 @@
             <span style="{{ c1CaptionCopyStyle }}">Kurzer Einblick in Aufbau, Struktur und Nutzerführung des Shops.</span>
           </div>
           <div style="{{ c1CtaWrapStyle }}">
-            <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="btn-pill" style="{{ primaryBtnStyle }}">Walkthrough ansehen</a>
+            <a href="https://drive.google.com/file/d/1ZM4CWZ1CJGp5d3qtxk0aSyLfXs3kVGFF/view?usp=sharing" target="_blank" rel="noopener" class="btn-pill" style="{{ c1CtaBtnStyle }}">Walkthrough ansehen</a>
             <div style="{{ c1UtilRowStyle }}">
               <button type="button" class="util-link" style="{{ c1UtilLinkStyle }}" onClick="{{ copyLink1 }}">{{ copyLabel1 }}</button>
               <span style="{{ c1UtilSepStyle }}" aria-hidden="true">·</span>
@@ -507,7 +507,7 @@ class Component extends DCLogic {
       c1ShowcaseStyle: { gridArea: "video", order: 2, margin: 0, display: "flex", flexDirection: "column", minWidth: 0 },
       /* quiet browser-frame preview; shows a real still once previewImg is set */
       c1PreviewStyle: {
-        display: "block", borderRadius: 14, overflow: "hidden",
+        display: "block", borderRadius: "14px 14px 0 0", overflow: "hidden",
         backgroundColor: "#ffffff", textDecoration: "none",
       },
       c1BrowserBarStyle: {
@@ -531,10 +531,13 @@ class Component extends DCLogic {
         display: "flex", alignItems: "center", justifyContent: "center",
       },
       playIconSvgSize: m ? 38 : 52,
+      /* video footer: attached to the thumbnail, full width, very light grey, no shadow/border, bottom corners rounded like the preview */
       c1CaptionStyle: {
         display: "flex", flexDirection: m ? "column" : "row", flexWrap: "wrap",
         alignItems: m ? "flex-start" : "center", justifyContent: "space-between",
-        gap: m ? 16 : 24, marginTop: m ? 18 : 22,
+        gap: m ? 16 : 28, margin: 0,
+        backgroundColor: "#ebebeb", borderRadius: "0 0 14px 14px",
+        padding: m ? "18px 20px 20px 20px" : "22px 28px",
       },
       c1CaptionTextStyle: { display: "flex", flexDirection: "column", gap: 4, minWidth: 0, flex: m ? "0 0 auto" : "1 1 320px" },
       c1CaptionLabelStyle: {
@@ -545,16 +548,24 @@ class Component extends DCLogic {
         fontFamily: archivo, fontWeight: 400, fontSize: m ? 16 : 16.5, lineHeight: 1.5,
         color: bodyText,
       },
-      c1CtaWrapStyle: { display: "flex", flexDirection: "column", alignItems: m ? "flex-start" : "flex-end", gap: 6, flexShrink: 0 },
-      c1UtilRowStyle: { display: "flex", alignItems: "center", gap: 10, marginTop: 4 },
+      c1CtaWrapStyle: { display: "flex", flexDirection: "column", alignItems: m ? "flex-start" : "center", gap: 6, flexShrink: 0 },
+      c1CtaBtnStyle: {
+        display: "inline-flex", alignItems: "center", justifyContent: "center",
+        height: 44, padding: m ? "0 28px" : "0 30px",
+        borderRadius: 999, backgroundColor: "var(--ink-900)", color: "var(--white)",
+        fontFamily: archivo, fontWeight: 600, fontSize: m ? 16 : 17,
+        letterSpacing: 0, textDecoration: "none", textAlign: "center", whiteSpace: "nowrap",
+        boxSizing: "border-box",
+      },
+      c1UtilRowStyle: { display: "flex", alignItems: "center", gap: 8, marginTop: 4 },
       c1UtilLinkStyle: {
-        fontFamily: archivo, fontWeight: 600, fontSize: 14, lineHeight: 1.4,
+        fontFamily: archivo, fontWeight: 500, fontSize: 13.5, lineHeight: 1.4,
         color: strong, background: "none", border: "none", padding: 0, cursor: "pointer",
         textDecoration: "underline", textDecorationColor: "var(--ink-200)", textUnderlineOffset: 3,
       },
-      c1UtilSepStyle: { fontFamily: archivo, fontSize: 14, color: muted },
+      c1UtilSepStyle: { fontFamily: archivo, fontSize: 13.5, color: muted },
       c1CtaNoteStyle: {
-        fontFamily: archivo, fontWeight: 400, fontSize: 13.5, lineHeight: 1.4,
+        fontFamily: archivo, fontWeight: 400, fontSize: 12.5, lineHeight: 1.4,
         color: muted,
       },
 
