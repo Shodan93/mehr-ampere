@@ -53,8 +53,9 @@
     [id] { scroll-margin-top: 24px; }
     .video-tile { cursor: pointer; }
     /* Pill button hover/focus: instant switch to lime with dark text (5:1), like mehr-ampere.de; no transition */
-    /* contact bar actions on dark grey: hover = instant switch to white with dark text */
-    .cta-mail:hover, .cta-mail:focus-visible, .cta-phone:hover, .cta-phone:focus-visible { background-color: #ffffff !important; color: var(--ink-900) !important; border-color: #ffffff !important; }
+    /* contact bar actions: like the earlier lime pills, hover = instant switch to dark grey with white text (a shade darker than the bar so it reads); lime border stays on the mail button */
+    .cta-mail:hover, .cta-mail:focus-visible { background-color: #2f3437 !important; color: #ffffff !important; }
+    .cta-phone:hover, .cta-phone:focus-visible { background-color: #2f3437 !important; color: #ffffff !important; border-color: #ffffff !important; }
     .cta-mail:focus-visible, .cta-phone:focus-visible { outline: 2px solid var(--accent-lime); outline-offset: 3px; }
     .btn-pill:hover, .btn-pill:focus-visible { background-color: var(--accent-lime) !important; color: var(--ink-900) !important; }
     .btn-pill:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
