@@ -84,18 +84,16 @@
       </div>
     </header>
 
-    <section id="ueber-mich" aria-labelledby="hallo-title" style="{{ quoteBandStyle }}">
+    <section id="ueber-mich" aria-label="Über mich" style="{{ quoteBandStyle }}">
       <div style="{{ quoteInnerStyle }}">
         <div style="{{ quoteTextWrapStyle }}">
-          <h2 id="hallo-title" style="{{ quoteHelloStyle }}">Hallo Holger,</h2>
-          <p style="{{ introAboutStyle }}">statt eines klassischen Anschreibens habe ich diese Seite für euch konzipiert und umgesetzt.</p>
-          <p style="{{ introAboutStyle }}">Sie zeigt konkret, wie ich Website, Content und SEO angehe, von der Struktur bis zur Veröffentlichung.</p>
+          <blockquote style="{{ introAboutStyle }}"><span style="{{ quoteMarkOpenStyle }}" aria-hidden="true">&bdquo;</span>Hallo Holger,<span style="{{ quoteLineStyle }}">statt eines klassischen Anschreibens habe ich diese Seite für euch konzipiert und umgesetzt.</span><span style="{{ quoteLineStyle }}">Sie zeigt konkret, wie ich Website, Content und SEO angehe, von der Struktur bis zur Veröffentlichung.<span style="{{ quoteMarkCloseStyle }}" aria-hidden="true">&ldquo;</span></span></blockquote>
           <div style="{{ quoteCaptionStyle }}">
             <span style="{{ quoteNameStyle }}">Svenja Mumelter</span>
             <span style="{{ quoteRoleStyle }}">Online Marketing · Website · SEO · Content</span>
           </div>
         </div>
-        <img src="assets/svenja-portrait-03.jpg" alt="Svenja Mumelter" width="244" height="244" style="{{ introPortraitStyle }}" />
+        <img src="assets/svenja-portrait-03.jpg" alt="Svenja Mumelter" width="224" height="224" style="{{ introPortraitStyle }}" />
       </div>
     </section>
 
@@ -325,25 +323,27 @@ class Component extends DCLogic {
         position: "relative", zIndex: 1,
         backgroundColor: "var(--ink-900)",
         display: "flex", justifyContent: "center",
-        padding: m ? "44px 24px 44px 24px" : "52px 72px 52px 72px",
+        padding: m ? "36px 24px 38px 24px" : "40px 72px 40px 72px",
       },
       quoteInnerStyle: {
         display: "flex", flexDirection: m ? "column" : "row",
         alignItems: m ? "flex-start" : "center", justifyContent: "space-between",
         gap: m ? 28 : 72, width: "100%",
       },
-      quoteTextWrapStyle: { display: "flex", flexDirection: "column", gap: m ? 12 : 14, maxWidth: 620, minWidth: 0 },
-      quoteHelloStyle: {
-        fontFamily: "var(--font-headline)", fontWeight: 700, fontSize: m ? 26 : 37, lineHeight: 1.05,
-        textTransform: "uppercase", letterSpacing: "0.005em",
-        color: accent, margin: "0 0 4px 0",
-      },
+      quoteTextWrapStyle: { display: "flex", flexDirection: "column", gap: m ? 12 : 14, maxWidth: 840, minWidth: 0 },
+      /* editorial quote: calm white Barlow, lime typographic quotation marks, opening mark hangs into the margin */
       introAboutStyle: {
         fontFamily: archivo, fontWeight: 400,
-        fontSize: m ? 16 : 18.5, lineHeight: 1.55,
+        fontSize: m ? 17 : 20, lineHeight: 1.6,
         color: "#ffffff", margin: 0,
       },
-      quoteCaptionStyle: { display: "flex", flexDirection: "column", gap: 2, marginTop: m ? 10 : 12 },
+      quoteLineStyle: { display: "block", marginTop: m ? 6 : 6 },
+      quoteMarkOpenStyle: {
+        display: "inline-block", width: "0.5em", marginLeft: "-0.5em",
+        color: accent, fontWeight: 600,
+      },
+      quoteMarkCloseStyle: { color: accent, fontWeight: 600 },
+      quoteCaptionStyle: { display: "flex", flexDirection: "column", gap: 2, marginTop: m ? 14 : 18 },
       quoteNameStyle: {
         fontFamily: archivo, fontWeight: 700, fontSize: 15, letterSpacing: "0.1em", textTransform: "uppercase",
         lineHeight: 1.5, color: "#ffffff",
@@ -353,7 +353,7 @@ class Component extends DCLogic {
         lineHeight: 1.5, color: "#c9cdd0",
       },
       introPortraitStyle: {
-        width: m ? 160 : 244, height: m ? 160 : 244, flexShrink: 0,
+        width: m ? 148 : 224, height: m ? 148 : 224, flexShrink: 0,
         borderRadius: "50%", objectFit: "cover", display: "block",
         order: m ? -1 : 0,
         marginRight: m ? 0 : "clamp(24px, 6vw, 88px)", /* still clearly right, but a little closer to the copy */
