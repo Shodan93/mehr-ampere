@@ -55,7 +55,7 @@
     /* Pill button hover/focus: instant switch to lime with dark text (5:1), like mehr-ampere.de; no transition */
     /* contact bar actions like the buttons on mehr-ampere.de: grey with white text, hover = instant switch to lime with dark text */
     .cta-mail:hover, .cta-mail:focus-visible, .cta-phone:hover, .cta-phone:focus-visible { background-color: var(--accent-lime) !important; color: var(--ink-900) !important; border-color: var(--accent-lime) !important; }
-    .cta-mail:focus-visible, .cta-phone:focus-visible { outline: 2px solid var(--accent-lime); outline-offset: 3px; }
+    .cta-mail:focus-visible, .cta-phone:focus-visible { outline: 2px solid var(--ink-900); outline-offset: 3px; }
     .btn-pill:hover, .btn-pill:focus-visible { background-color: var(--accent-lime) !important; color: var(--ink-900) !important; }
     .btn-pill:focus-visible { outline: 3px solid var(--ink-900); outline-offset: 3px; }
     /* preview hover: the play button swaps red/white, instantly (no transition) */
@@ -401,14 +401,14 @@ class Component extends DCLogic {
         letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.4,
         color: muted, whiteSpace: "nowrap", margin: 0,
       },
-      /* Contact bar: flat dark grey like the intro band, compact, no shadow; lime label, white line, lime primary + outline phone */
+      /* Contact bar: light, airy flat tile like the info boxes on mehr-ampere.de; dark text; grey buttons that turn lime on hover */
       ctaStyle: {
         display: "flex", flexDirection: m ? "column" : "row", flexWrap: "wrap",
         alignItems: m ? "flex-start" : "center", justifyContent: "space-between",
         gap: m ? 18 : "16px 32px", width: "100%", boxSizing: "border-box",
         padding: m ? "22px 20px" : "24px 32px",
-        borderRadius: 12,
-        backgroundColor: "var(--ink-900)",
+        borderRadius: 16,
+        backgroundColor: "#f3f3f2",
       },
       ctaTextWrapStyle: {
         display: "flex", flexDirection: "column", gap: 4, minWidth: 0,
@@ -416,12 +416,12 @@ class Component extends DCLogic {
       },
       ctaLabelStyle: {
         fontFamily: archivo, fontWeight: 600, fontSize: 13,
-        letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.4, color: accent, margin: 0,
+        letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.4, color: muted, margin: 0,
       },
       ctaTextStyle: {
         fontFamily: archivo, fontWeight: 600,
         fontSize: m ? 18 : 20, lineHeight: 1.35,
-        color: "#ffffff", margin: 0,
+        color: strong, margin: 0,
       },
       ctaLinksStyle: {
         display: "flex", flexDirection: "row", flexWrap: "wrap",
@@ -429,15 +429,15 @@ class Component extends DCLogic {
       },
       ctaMailStyle: {
         display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
-        height: 42, padding: "0 18px", borderRadius: 8, border: "1.5px solid #5a6166",
-        backgroundColor: "#5a6166", color: "#ffffff", /* a step lighter than the bar so the grey button reads on dark */
+        height: 42, padding: "0 18px", borderRadius: 8, border: "1.5px solid var(--ink-900)",
+        backgroundColor: "var(--ink-900)", color: "#ffffff",
         fontFamily: archivo, fontWeight: 600, fontSize: 16,
         textDecoration: "none", whiteSpace: "nowrap", boxSizing: "border-box",
       },
       ctaPhoneStyle: {
         display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
-        height: 42, padding: "0 16px", borderRadius: 8, border: "1.5px solid rgba(255,255,255,0.45)",
-        backgroundColor: "transparent", color: "#ffffff",
+        height: 42, padding: "0 16px", borderRadius: 8, border: "1.5px solid var(--ink-900)",
+        backgroundColor: "transparent", color: "var(--ink-900)",
         fontFamily: archivo, fontWeight: 600, fontSize: 16,
         textDecoration: "none", whiteSpace: "nowrap", boxSizing: "border-box",
       },
