@@ -12,7 +12,7 @@
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
   <style>
     /* Design tokens. Swap --accent-lime (and only that one value) to restyle the whole page's accent. */
     :root {
@@ -25,6 +25,7 @@
       --border-subtle:var(--ink-200);
       --font-display:'Barlow',-apple-system,Helvetica,Arial,sans-serif;
       --font-body:'Barlow',-apple-system,Helvetica,Arial,sans-serif;
+      --font-headline:'Ubuntu','Barlow',-apple-system,Helvetica,Arial,sans-serif; /* free stand-in for Mehr Ampere's headline face (Komet): big uppercase headlines only */
       --lh-tight:1.02; --ls-tight:-0.01em; --ls-wide:0.08em;
       /* Typography scale (desktop). --type-scale is one global knob for all sizes except the hero headline. */
       --type-scale:1.08;
@@ -311,7 +312,7 @@ class Component extends DCLogic {
         color: muted, margin: 0,
       },
       h1Style: {
-        fontFamily: archivo, fontWeight: 800,
+        fontFamily: "var(--font-headline)", fontWeight: 700,
         fontSize: m ? "calc((100vw - 48px) / 13.5)" : "min(61px, calc((100vw - 144px) / 19.75))",
         lineHeight: 1.0, letterSpacing: "0.005em", textTransform: "uppercase",
         color: strong, margin: 0,
@@ -333,7 +334,7 @@ class Component extends DCLogic {
       },
       quoteTextWrapStyle: { display: "flex", flexDirection: "column", gap: m ? 12 : 14, maxWidth: 620, minWidth: 0 },
       quoteHelloStyle: {
-        fontFamily: archivo, fontWeight: 800, fontSize: m ? 26 : 37, lineHeight: 1.05,
+        fontFamily: "var(--font-headline)", fontWeight: 700, fontSize: m ? 26 : 37, lineHeight: 1.05,
         textTransform: "uppercase", letterSpacing: "0.005em",
         color: accent, margin: "0 0 4px 0",
       },
@@ -373,7 +374,7 @@ class Component extends DCLogic {
         color: muted,
       },
       introH2Style: {
-        fontFamily: archivo, fontWeight: 800,
+        fontFamily: "var(--font-headline)", fontWeight: 700,
         fontSize: m ? "calc((100vw - 48px) / 14)" : "min(44px, calc((100vw - 144px) / 28.5))",
         lineHeight: 1.05, letterSpacing: "0.005em", textTransform: "uppercase",
         color: strong, margin: 0, maxWidth: 1240,
