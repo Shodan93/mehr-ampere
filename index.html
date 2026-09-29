@@ -278,12 +278,8 @@ class Component extends DCLogic {
       heroIntroWrapStyle: {
         position: "relative",
       },
-      /* Very light grey at the top, easing to page white further down (no green) */
-      heroIntroBgStyle: {
-        position: "absolute", inset: 0, zIndex: 0,
-        backgroundImage: "linear-gradient(180deg, #efefef 0%, " + paper + " 55%)",
-        backgroundRepeat: "no-repeat",
-      },
+      /* plain page colour like the mehr-ampere.de home page; the dark intro band is the only contrast up top */
+      heroIntroBgStyle: { display: "none" },
       /* Hero: site-style header row (logo | nav), then a small kicker and one short, strong uppercase headline. No decorative lines. */
       heroStyle: {
         position: "relative", zIndex: 1,
