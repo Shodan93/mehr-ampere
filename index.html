@@ -87,13 +87,13 @@
     <section id="ueber-mich" aria-label="Über mich" style="{{ quoteBandStyle }}">
       <div style="{{ quoteInnerStyle }}">
         <div style="{{ quoteTextWrapStyle }}">
-          <blockquote style="{{ introAboutStyle }}"><span style="{{ quoteMarkOpenStyle }}" aria-hidden="true">&bdquo;</span>Hallo Holger,<span style="{{ quoteLineStyle }}">statt eines klassischen Anschreibens habe ich diese Seite für euch konzipiert und umgesetzt.</span><span style="{{ quoteLineStyle }}">Sie zeigt konkret, wie ich Website, Content und SEO angehe, von der Struktur bis zur Veröffentlichung.<span style="{{ quoteMarkCloseStyle }}" aria-hidden="true">&ldquo;</span></span></blockquote>
+          <blockquote style="{{ introAboutStyle }}"><span style="{{ quoteMarkOpenStyle }}" aria-hidden="true">&bdquo;</span>Hallo Holger,<span style="{{ quoteParaStyle }}">für meine Bewerbung habe ich diese Landingpage erstellt. Hier findet ihr zwei konkrete Arbeitsproben: meinen früheren Onlineshop und einen Marketing-Case aus meiner Weiterbildung.<span style="{{ quoteMarkCloseStyle }}" aria-hidden="true">&ldquo;</span></span></blockquote>
           <div style="{{ quoteCaptionStyle }}">
             <span style="{{ quoteNameStyle }}">Svenja Mumelter</span>
             <span style="{{ quoteRoleStyle }}">Online Marketing · Website · SEO · Content</span>
           </div>
         </div>
-        <img src="assets/svenja-portrait-03.jpg" alt="Svenja Mumelter" width="224" height="224" style="{{ introPortraitStyle }}" />
+        <img src="assets/svenja-portrait-03.jpg" alt="Svenja Mumelter" width="204" height="204" style="{{ introPortraitStyle }}" />
       </div>
     </section>
 
@@ -337,7 +337,7 @@ class Component extends DCLogic {
         fontSize: m ? 17 : 20, lineHeight: 1.6,
         color: "#ffffff", margin: 0,
       },
-      quoteLineStyle: { display: "block", marginTop: m ? 6 : 6 },
+      quoteParaStyle: { display: "block", marginTop: m ? 12 : 14 }, /* blank-line gap after the greeting */
       quoteMarkOpenStyle: {
         display: "inline-block", width: "0.5em", marginLeft: "-0.5em",
         color: accent, fontWeight: 600,
@@ -353,7 +353,7 @@ class Component extends DCLogic {
         lineHeight: 1.5, color: "#c9cdd0",
       },
       introPortraitStyle: {
-        width: m ? 148 : 224, height: m ? 148 : 224, flexShrink: 0,
+        width: m ? 136 : 204, height: m ? 136 : 204, flexShrink: 0,
         borderRadius: "50%", objectFit: "cover", display: "block",
         order: m ? -1 : 0,
         marginRight: m ? 0 : "clamp(24px, 6vw, 88px)", /* still clearly right, but a little closer to the copy */
